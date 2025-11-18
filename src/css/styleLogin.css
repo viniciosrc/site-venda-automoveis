@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif; 
+}
+
+body {
+    background-color: #FAFAFA; /* Fundo geral da página (Paleta) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Card de Login */
+.login-card {
+    background-color: #D9D9D9; /* Fundo cinza claro do card (Paleta) */
+    border-radius: 20px; 
+    padding: 50px;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #000000; /* Preto (Paleta) */
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 1.1em;
+    color: #858585; /* Cinza claro (Paleta) */
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+/* Formulário de Login */
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Grupos de Input */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #F3EBEB; /* Cor de fundo dos inputs (Paleta) */
+    border-radius: 5px;
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    width: 90%;
+    max-width: 550px;
+    height: 70px;
+}
+
+.input-group i {
+    color: #D9D9D9; /* Cor do ícone (Paleta) */
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    font-size: 1.5em;
+    color: #A5A5A5; /* Cor do placeholder/texto (Paleta) */
+    outline: none;
+    width: 100%;
+}
+
+.input-group input::placeholder {
+    color: #A5A5A5;
+    opacity: 1; 
+}
+
+/* Botão de Acessar Conta */
+.btn-access {
+    background-color: #000000; /* Preto (Paleta) */
+    color: #FFFFFF; /* Branco (Paleta) */
+    border: none;
+    border-radius: 40px;
+    padding: 15px 80px;
+    font-size: 1.6em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 400px; 
+}
+
+.btn-access:hover {
+    opacity: 0.9;
+}
+
+/* Link "Esqueci minha senha" */
+.forgot-password {
+    color: #000000; /* Preto (Paleta) */
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-top: 30px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

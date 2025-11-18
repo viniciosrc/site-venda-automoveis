@@ -1,0 +1,196 @@
+/* Estilos Gerais e Reset */
+* {
+   
+    box-sizing: border-box;
+    font-family: sans-serif; /* Usando uma fonte padrão, como na imagem */
+}
+
+body {
+    background-color: #FAFAFA; /* Fundo geral da página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contêiner principal para centralizar e agrupar as duas seções */
+.container {
+    display: flex;
+    width: 80%; /* Ajuste a largura conforme necessário */
+    max-width: 1000px;
+    height: 600px; /* Altura fixa para simular a imagem */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* --- Seção Esquerda (Login) --- */
+.login-section {
+    width: 45%; 
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* ADIÇÃO IMPORTANTE: Permite posicionar elementos filhos absolutamente */
+    position: relative;
+}
+.login-logo {
+    position: absolute; /* Posiciona a imagem em relação ao .login-section */
+    top: -105px; /* Distância do topo */
+    left: -5px; /* Distância da esquerda (mesmo que o padding original) */
+    width: 450px; /* Largura da sua logo - ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    z-index: 10; /* Garante que a logo fique acima de outros elementos se houver sobreposição */
+}
+.welcome-title {
+    padding-top: 160px;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    text-align: left; /* Alinhamento como na imagem */
+    width: 100%;
+}
+
+
+
+.access-text {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    color: #FFFFFF;
+    text-align: left; /* Alinhamento como na imagem */
+    width: 100%;
+}
+
+.btn-enter {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 40px;
+    padding: 15px 60px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 80%;
+    max-width: 250px;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.btn-enter:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.forgot-password {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-top: auto; /* Empurra para baixo, como na imagem */
+    padding-bottom: 20px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* --- Seção Direita (Cadastro) --- */
+/* --- Seção Direita (Cadastro) --- */
+.signup-section {
+    width: 55%; 
+    background-color: #FFFFFF;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 1. ALTERAÇÃO: Centraliza os itens horizontalmente (h1, p, form) */
+    align-items: center; 
+    /* ALTERAÇÃO ORIGINAL: Removido 'align-items: flex-start;' */
+}
+
+.signup-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 5px;
+    /* 2. ADIÇÃO: Garante que o texto dentro do título esteja centralizado */
+    text-align: center;
+}
+
+.signup-subtitle {
+    font-size: 1.1em;
+    color: #A5A5A5;
+    margin-bottom: 40px;
+    /* 3. ADIÇÃO: Garante que o texto dentro do subtítulo esteja centralizado */
+    text-align: center;
+}
+
+/* O formulário já estava centralizado pelo 'align-items: center' da seção pai, 
+   mas vamos garantir que ele ocupe a largura total para que a centralização funcione bem. */
+.signup-form {
+    width: 100%; /* Garante que o formulário use todo o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    /* Garante que os inputs e o botão no formulário estejam centralizados */
+    align-items: center; 
+}
+
+/* Estilo para os grupos de input */
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: #F3EBEB; /* Cor de fundo dos inputs */
+    border-radius: 5px;
+    margin-bottom: 25px;
+    padding: 10px 15px;
+    width: 150%; /* Largura relativa para os inputs */
+    max-width: 450px;
+    height: 70px; /* Altura para simular a aparência na imagem */
+}
+
+.input-group i {
+    color: #D9D9D9; /* Cor do ícone */
+    font-size: 1.5em;
+    margin-right: 15px;
+}
+
+.input-group input {
+    border: none;
+    background: transparent;
+    font-size: 1.5em; /* Tamanho da fonte grande, como na imagem */
+    color: #A5A5A5; /* Cor do placeholder/texto */
+    outline: none;
+    width: 100%;
+}
+
+/* Estilo para o placeholder (opcional, para ser mais fiel à imagem) */
+.input-group input::placeholder {
+    color: #A5A5A5;
+    opacity: 1; /* Para Firefox */
+}
+
+/* Botão de Cadastro */
+.btn-register {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 40px;
+    padding: 15px 80px;
+    font-size: 1.6em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 300px; /* Largura para o botão de cadastro */
+}
+
+.btn-register:hover {
+    opacity: 0.9;
+}

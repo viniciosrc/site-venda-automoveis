@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Cadastro</title>
+    <link rel="stylesheet" href="../css/styleCadastro.css">
+    <!-- Ícones Font Awesome para os inputs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Seção de Login (Esquerda) - AGORA INCLUI A LOGO DENTRO -->
+        <div class="login-section">
+            <img src="../assets/image/velocita-logo-login.png" alt="logo-velocita" class="login-logo">
+            
+            <h1 class="welcome-title">Bem-vindo de volta!</h1>
+            <p class="access-text">Acesse sua conta agora mesmo.</p>
+            
+            <a href="login.html" class="btn-enter">ENTRAR</a>
+            
+            <a href="#" class="forgot-password">Esqueci minha senha.</a>
+        </div>
+        
+        <!-- Seção de Cadastro (Direita) -->
+        <div class="signup-section">
+            <h2 class="signup-title">Crie sua conta</h2>
+            <p class="signup-subtitle">Preencha seus dados</p>
+            
+            <form class="signup-form">
+                <div class="input-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" placeholder="Nome" aria-label="Nome">
+                </div>
+                
+                <div class="input-group">
+                    <i class="fa fa-envelope"></i>
+                    <input type="email" placeholder="Email" aria-label="Email">
+                </div>
+                
+                <div class="input-group">
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Senha" aria-label="Senha">
+                </div>
+                
+                <button type="submit" class="btn-register">CADASTRAR</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
