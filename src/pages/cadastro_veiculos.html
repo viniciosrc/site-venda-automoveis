@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOCITÀ - Cadastro de Veículo</title>
+    <link rel="stylesheet" href="/css/style_cadastro_veiculos.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main-background">
+        <div class="main-container">
+            <header class="header">
+                <div class="logo-wrapper">
+                    <img src="/img/VELOCITÀ.png" alt="Logo VELOCITÀ" class="logo-img">
+                </div>
+            </header>
+
+            <div class="form-card">
+                <form>
+                    
+                    <div class="form-section current-step" id="step1">
+                        <h2>Qual veículo você quer anunciar?</h2>
+
+                        <div class="vehicle-type-selection">
+                            <div class="type-box" id="car-category">
+                                <i class="fas fa-car icon-car"></i>
+                                <span class="type-text">Automóveis e peças</span>
+                                <button type="button" class="btn-change-category" onclick="toggleCategory()">Trocar categoria</button>
+                            </div>
+                            <div class="type-box hidden-category" id="moto-category">
+                                <i class="fas fa-motorcycle icon-moto"></i>
+                                <span class="type-text">Motos e peças</span>
+                                <button type="button" class="btn-change-category" onclick="toggleCategory()">Trocar categoria</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group large-input">
+                            <label for="tipo_automovel">Qual a marca do(tipo automóvel)?</label>
+                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Selecione ou digite">
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary disabled">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep('step2')">Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step2">
+                        <h2>Adicione as fotos do automóvel</h2>
+                        <div class="photo-upload-box">
+                            <p>Até 12 fotos nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
+                            <div class="drag-drop-area">Arraste as fotos para cá ou</div>
+                            <button type="button" class="btn-add-photos">(+) Clique para adicionar as fotos</button>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step1')">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep('step3')">Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step3">
+                        <h2>Informações do Veículo</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="marca">Marca:</label>
+                                <input type="text" id="marca" name="marca" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="modelo">Modelo:</label>
+                                <input type="text" id="modelo" name="modelo" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="ano_modelo">Ano do modelo:</label>
+                                <input type="number" id="ano_modelo" name="ano_modelo" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="ano_fabricacao">Ano de fabricação:</label>
+                                <input type="number" id="ano_fabricacao" name="ano_fabricacao" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="versao">Versão:</label>
+                                <input type="text" id="versao" name="versao" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="quilometragem">Quilometragem:</label>
+                                <input type="number" id="quilometragem" name="quilometragem" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="combustivel">Tipo de combustível:</label>
+                                <select id="combustivel" name="combustivel">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cambio">Câmbio:</label>
+                                <select id="cambio" name="cambio">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="portas">Número de portas:</label>
+                                <select id="portas" name="portas">
+                                    <option value="">Selecione</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="placa">Placa:</label>
+                                <input type="text" id="placa" name="placa" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="categoria">Categoria:</label>
+                                <input type="text" id="categoria" name="categoria" placeholder="">
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step2')">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep('step4')">Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step4">
+                        <h2>Detalhes Técnicos</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="motorizacao">Motorização:</label>
+                                <input type="text" id="motorizacao" name="motorizacao" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="tracao">Tração:</label>
+                                <input type="text" id="tracao" name="tracao" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label>Procedência:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="procedencia" value="nacional"> Nacional</label>
+                                    <label><input type="radio" name="procedencia" value="importada"> Importada</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="consumo_medio">Consumo Médio:</label>
+                                <input type="text" id="consumo_medio" name="consumo_medio" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="termo_solar">Termo Solar:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="termo_solar" value="sim"> Sim</label>
+                                    <label><input type="radio" name="termo_solar" value="nao"> Não</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Condição:</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="condicao" value="novo"> Novo</label>
+                                    <label><input type="radio" name="condicao" value="usado"> Usado</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="potencia">Potência:</label>
+                                <div class="power-input-group">
+                                    <input type="number" id="potencia" name="potencia" placeholder="">
+                                    <select id="potencia_unidade" name="potencia_unidade">
+                                        <option value="cv">CV</option>
+                                        <option value="hw">HW</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label>Opcionais (Marque todos que se aplicam):</label>
+                                <label><input type="checkbox" name="opcional" value="ipva"> IPVA pago</label>
+                                <label><input type="checkbox" name="opcional" value="licenciamento"> Licenciamento ok</label>
+                                <label><input type="checkbox" name="opcional" value="revisoes"> Revisões feitas</label>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step3')">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep('step5')">Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step5">
+                        <h2>Informações de venda</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="preco">Preço:</label>
+                                <input type="number" id="preco" name="preco" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="forma_pagamento">Forma de pagamento aceita:</label>
+                                <input type="text" id="forma_pagamento" name="forma_pagamento" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="cidade_localizacao">Cidade / Estado / Localização aproximada:</label>
+                                <input type="text" id="cidade_localizacao" name="cidade_localizacao" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="descricao_anuncio">Descrição do anúncio:</label>
+                                <textarea id="descricao_anuncio" name="descricao_anuncio" rows="4" placeholder=""></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="status_anuncio">Status do anúncio:</label>
+                                <select id="status_anuncio" name="status_anuncio">
+                                    <option value="rascunho">Rascunho</option>
+                                    <option value="ativo">Ativo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step4')">Voltar</button>
+                            <button type="button" class="btn btn-primary" onclick="nextStep('step6')">Continuar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step6">
+                        <h2>Extras</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tags">Tags:</label>
+                                <input type="text" id="tags" name="tags" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="consumo_medio_extra">Consumo médio:</label>
+                                <input type="text" id="consumo_medio_extra" name="consumo_medio_extra" placeholder="">
+                            </div>
+                        </div>
+                        
+                        <div class="button-group-extra">
+                            <button type="button" class="btn btn-secondary-extra">Pré-visualização do anúncio</button>
+                            <button type="button" class="btn btn-secondary-extra">Adicionar mais fotos</button>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step5')">Voltar</button>
+                            <button type="submit" class="btn btn-primary">Publicar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showStep(stepId) {
+            document.querySelectorAll('.form-section').forEach(section => {
+                section.classList.add('hidden-step');
+                section.classList.remove('current-step');
+            });
+            document.getElementById(stepId).classList.remove('hidden-step');
+            document.getElementById(stepId).classList.add('current-step');
+        }
+
+        function nextStep(nextStepId) {
+            showStep(nextStepId);
+        }
+
+        function prevStep(prevStepId) {
+            showStep(prevStepId);
+        }
+
+        function toggleCategory() {
+            const car = document.getElementById('car-category');
+            const moto = document.getElementById('moto-category');
+            const label = document.querySelector('.form-group.large-input label');
+
+            if (car.classList.contains('hidden-category')) {
+                car.classList.remove('hidden-category');
+                moto.classList.add('hidden-category');
+                label.textContent = 'Qual a marca do(tipo automóvel)?';
+            } else {
+                moto.classList.remove('hidden-category');
+                car.classList.add('hidden-category');
+                label.textContent = 'Qual a marca da(tipo motocicleta)?';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showStep('step1');
+        });
+    </script>
+</body>
+</html>

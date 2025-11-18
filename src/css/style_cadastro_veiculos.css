@@ -1,0 +1,325 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.main-background {
+    width: 100%;
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 650px; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px; 
+    padding: 0;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    background-color: transparent; 
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.logo-img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+}
+
+.form-card {
+    background-color: #f0f2f5;
+    border-radius: 16px;
+    box-shadow: none; 
+    padding: 30px; 
+}
+
+.form-section.hidden-step {
+    display: none;
+}
+
+.form-section.current-step {
+    display: block;
+}
+
+.form-section h2 {
+    color: #333;
+    font-size: 1.8em;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 15px; 
+    border: 1px solid #e0e0e0; 
+    background-color: #fff; 
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #ff0080;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    font-weight: normal;
+    margin-right: 25px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: #555;
+}
+
+.vehicle-type-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    position: relative;
+    min-height: 48px;
+}
+
+.type-box {
+    display: flex;
+    align-items: center;
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    gap: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    transition: opacity 0.3s;
+}
+
+.type-box.hidden-category {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.icon-car, .icon-moto {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.type-text {
+    font-size: 1em;
+    color: #333;
+}
+
+.btn-change-category {
+    background-color: #eee;
+    color: #555;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.form-group.large-input input {
+    border: 2px solid #ff0080; 
+    border-radius: 12px;
+    background-color: white;
+}
+
+.photo-upload-box {
+    border: 3px dashed #ff0080; 
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 16px; 
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.photo-upload-box p {
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+
+.photo-upload-box .drag-drop-area {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.btn-add-photos {
+    background: none; 
+    color: #ff0080; 
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.btn-add-photos:hover {
+    text-decoration: underline;
+}
+
+.power-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.power-input-group input[type="number"] {
+    flex-grow: 1;
+}
+
+.power-input-group select {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+    margin-bottom: 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px solid #eee; 
+}
+
+.btn {
+    padding: 12px 35px; 
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 1em;
+    text-transform: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+    min-width: 130px;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0; 
+    color: #333;
+}
+
+.btn-secondary.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background-color: #ff7043; 
+    color: white;
+}
+
+.button-group-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-secondary-extra {
+    background-color: white;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .main-background {
+        padding: 10px 0;
+    }
+    .main-container {
+        margin-top: 10px;
+    }
+    .header {
+        padding: 0;
+    }
+    .logo-img {
+        max-width: 150px;
+    }
+    .form-card {
+        padding: 20px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .button-group {
+        flex-direction: row; 
+        justify-content: space-between;
+        gap: 10px;
+    }
+    .btn {
+        flex-grow: 1;
+        padding: 10px 15px;
+    }
+    .power-input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .power-input-group select {
+        width: 100%;
+    }
+}
