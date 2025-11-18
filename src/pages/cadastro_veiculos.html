@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VELOCITÀ - Cadastro de Veículo</title>
-    <link rel="stylesheet" href="/css/style_cadastro_veiculos.css">
+    <link rel="stylesheet" href="/src/css/style_cadastro_veiculos.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="main-background">
+    <div class="header-background">
         <div class="main-container">
             <header class="header">
-                <div class="logo-wrapper">
-                    <img src="/img/VELOCITÀ.png" alt="Logo VELOCITÀ" class="logo-img">
-                </div>
+                <img src="/src/assets/image/logovelocita-home.png" alt="Logo VELOCITÀ" class="logo-img">
             </header>
-
+        </div>
+    </div>
+    <div class="main-background">
+        <div class="main-container">
             <div class="form-card">
                 <form>
                     
@@ -24,21 +25,71 @@
                         <h2>Qual veículo você quer anunciar?</h2>
 
                         <div class="vehicle-type-selection">
-                            <div class="type-box" id="car-category">
-                                <i class="fas fa-car icon-car"></i>
-                                <span class="type-text">Automóveis e peças</span>
-                                <button type="button" class="btn-change-category" onclick="toggleCategory()">Trocar categoria</button>
-                            </div>
-                            <div class="type-box hidden-category" id="moto-category">
-                                <i class="fas fa-motorcycle icon-moto"></i>
-                                <span class="type-text">Motos e peças</span>
-                                <button type="button" class="btn-change-category" onclick="toggleCategory()">Trocar categoria</button>
-                            </div>
+                            <div class="type-box active-category" id="car-category" onclick="selectCategory(true)">
+                                <div class="image-box" id="car-image"></div>
+                                <span class="type-text">Carro</span>
+                                </div>
+                            <div class="type-box" id="moto-category" onclick="selectCategory(false)">
+                                <div class="image-box" id="moto-image"></div>
+                                <span class="type-text">Moto</span>
+                                </div>
                         </div>
 
-                        <div class="form-group large-input">
-                            <label for="tipo_automovel">Qual a marca do(tipo automóvel)?</label>
-                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Selecione ou digite">
+                        <div class="form-group large-input dropdown-group">
+                            <label for="tipo_automovel">Qual a marca do automóvel?</label>
+                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Selecione ou digite" list="marca-list" autocomplete="off">
+                            <i class="fas fa-chevron-down dropdown-arrow" onclick="document.getElementById('tipo_automovel').focus()"></i>
+                            <datalist id="marca-list">
+                                <option value="Chevrolet"></option>
+                                <option value="Volkswagen"></option>
+                                <option value="Fiat"></option>
+                                <option value="Ford"></option>
+                                <option value="Renault"></option>
+                                <option value="Toyota"></option>
+                                <option value="Hyundai"></option>
+                                <option value="Jeep"></option>
+                                <option value="Honda"></option>
+                                <option value="Nissan"></option>
+                                <option value="Mercedes-Benz"></option>
+                                <option value="BMW"></option>
+                                <option value="Audi"></option>
+                                <option value="Volvo"></option>
+                                <option value="Land Rover"></option>
+                                <option value="Citroën"></option>
+                                <option value="Peugeot"></option>
+                                <option value="Kia"></option>
+                                <option value="Mitsubishi"></option>
+                                <option value="Subaru"></option>
+                                <option value="Lexus"></option>
+                                <option value="Porsche"></option>
+                                <option value="Ferrari"></option>
+                                <option value="Lamborghini"></option>
+                                <option value="Maserati"></option>
+                                <option value="Rolls-Royce"></option>
+                                <option value="Jaguar"></option>
+                                <option value="Mini"></option>
+                                <option value="Smart"></option>
+                                <option value="Chery"></option>
+                                <option value="JAC Motors"></option>
+                                <option value="Effa"></option>
+                                <option value="Suzuki"></option>
+                                <option value="Dodge"></option>
+                                <option value="Chrysler"></option>
+                                <option value="RAM"></option>
+                                <option value="Lifan"></option>
+                                <option value="Shineray"></option>
+                                <option value="BYD"></option>
+                                <option value="GWM"></option>
+                                <option value="Tesla"></option>
+                                <option value="McLaren"></option>
+                                <option value="Bugatti"></option>
+                                <option value="Acura"></option>
+                                <option value="Infiniti"></option>
+                                <option value="Geely"></option>
+                                <option value="Troller"></option>
+                                <option value="Iveco"></option>
+                                <option value="Sinotruk"></option>
+                            </datalist>
                         </div>
 
                         <div class="button-group">
@@ -49,10 +100,11 @@
 
                     <div class="form-section hidden-step" id="step2">
                         <h2>Adicione as fotos do automóvel</h2>
-                        <div class="photo-upload-box">
+                        <div class="photo-upload-box" onclick="document.getElementById('photo-upload').click()">
                             <p>Até 12 fotos nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
                             <div class="drag-drop-area">Arraste as fotos para cá ou</div>
                             <button type="button" class="btn-add-photos">(+) Clique para adicionar as fotos</button>
+                            <input type="file" id="photo-upload" name="photos[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;">
                         </div>
 
                         <div class="button-group">
@@ -243,6 +295,22 @@
     </div>
 
     <script>
+        const carBrands = [
+            'Chevrolet', 'Volkswagen', 'Fiat', 'Ford', 'Renault', 'Toyota', 'Hyundai', 'Jeep', 'Honda', 'Nissan',
+            'Mercedes-Benz', 'BMW', 'Audi', 'Volvo', 'Land Rover', 'Citroën', 'Peugeot', 'Kia', 'Mitsubishi', 'Subaru',
+            'Lexus', 'Porsche', 'Ferrari', 'Lamborghini', 'Maserati', 'Rolls-Royce', 'Jaguar', 'Mini', 'Smart', 'Chery',
+            'JAC Motors', 'Effa', 'Suzuki', 'Dodge', 'Chrysler', 'RAM', 'Lifan', 'Shineray', 'BYD', 'GWM',
+            'Tesla', 'McLaren', 'Bugatti', 'Acura', 'Infiniti', 'Geely', 'Troller', 'Iveco', 'Sinotruk', 'Outra'
+        ];
+
+        const motoBrands = [
+            'Honda', 'Yamaha', 'Suzuki', 'Kawasaki', 'BMW', 'Ducati', 'Harley-Davidson', 'Triumph', 'KTM', 'Royal Enfield',
+            'Indian', 'Aprilia', 'Moto Guzzi', 'Vespa', 'Shineray', 'Dafra', 'Haojue', 'Sundown', 'Traxx', 'Green',
+            'Kasinski', 'Bull', 'Mottu', 'Muuv', 'Zero Motorcycles', 'Energica', 'Husqvarna', 'GasGas', 'Sherco', 'Beta',
+            'Piaggio', 'Peugeot Scooters', 'Can-Am', 'Polaris', 'CFMOTO', 'Loncin', 'Zongshen', 'Benelli', 'MV Agusta', 'Cagiva',
+            'Megelli', 'TVS', 'Bajaj', 'Hero', 'KYMCO', 'SYM', 'Fantic', 'Montesa', 'Rieju', 'Outra'
+        ];
+
         function showStep(stepId) {
             document.querySelectorAll('.form-section').forEach(section => {
                 section.classList.add('hidden-step');
@@ -260,24 +328,42 @@
             showStep(prevStepId);
         }
 
-        function toggleCategory() {
+        function updateMarcaDropdown(isCar) {
+            const dataList = document.getElementById('marca-list');
+            dataList.innerHTML = '';
+            const brands = isCar ? carBrands : motoBrands;
+            brands.forEach(brand => {
+                const option = document.createElement('option');
+                option.value = brand;
+                dataList.appendChild(option);
+            });
+
+            const label = document.querySelector('.form-group.large-input label');
+            const input = document.getElementById('tipo_automovel');
+            
+            label.textContent = isCar ? 'Qual a marca do automóvel?' : 'Qual a marca da motocicleta?';
+            input.placeholder = 'Selecione ou digite';
+            input.value = ''; 
+        }
+
+        // Função simplificada para apenas selecionar a categoria ao clicar na box
+        function selectCategory(isCar) {
             const car = document.getElementById('car-category');
             const moto = document.getElementById('moto-category');
-            const label = document.querySelector('.form-group.large-input label');
 
-            if (car.classList.contains('hidden-category')) {
-                car.classList.remove('hidden-category');
-                moto.classList.add('hidden-category');
-                label.textContent = 'Qual a marca do(tipo automóvel)?';
+            if (isCar) {
+                car.classList.add('active-category');
+                moto.classList.remove('active-category');
             } else {
-                moto.classList.remove('hidden-category');
-                car.classList.add('hidden-category');
-                label.textContent = 'Qual a marca da(tipo motocicleta)?';
+                moto.classList.add('active-category');
+                car.classList.remove('active-category');
             }
+            updateMarcaDropdown(isCar);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             showStep('step1');
+            selectCategory(true); 
         });
     </script>
 </body>
