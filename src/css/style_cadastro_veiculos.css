@@ -39,14 +39,16 @@ body {
 }
 
 .header {
-    text-align: center;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
 }
 
 .logo-img {
-    max-width: 200px;
-    height: auto;
-    display: inline-block;
+    width: auto;
+    height: 300px;
 }
 
 .form-card {
@@ -160,20 +162,33 @@ body {
 }
 
 .image-box {
-    width: 80px;
-    height: 60px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 10px;
+    /* Define o tamanho da área da imagem, que deve ser menor que a altura total de 120px do .type-box */
+    height: 70px; 
+    width: 70px;
+    
+    /* Centraliza a imagem internamente (se for menor que o container) */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+    /* Adiciona um espaço abaixo da imagem para separar do texto "Carro" ou "Moto" */
+    margin-bottom: 8px; 
 }
 
-#car-image {
-    background-image: url('https://via.placeholder.com/80x60?text=Carro');
+/* 2. Estilos para a IMAGEM (A tag <img> real) */
+.image-box img {
+    /* Garante que a imagem se ajuste ao tamanho da .image-box */
+    max-width: 100%; 
+    max-height: 100%;
+    /* Garante que a imagem mantenha sua proporção e não fique distorcida */
+    object-fit: contain; 
 }
 
-#moto-image {
-    background-image: url('https://via.placeholder.com/80x60?text=Moto');
+/* Opcional: Se quiser dar um visual diferenciado ao texto */
+.type-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
 }
 
 .type-text {
