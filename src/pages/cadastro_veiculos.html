@@ -122,10 +122,6 @@
                         <h2>Informações do Veículo</h2>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="marca">Marca:</label>
-                                <input type="text" id="marca" name="marca" placeholder="">
-                            </div>
-                            <div class="form-group">
                                 <label for="modelo">Modelo:</label>
                                 <input type="text" id="modelo" name="modelo" placeholder="">
                             </div>
@@ -364,6 +360,16 @@
         }
 
         function nextStep(nextStepId) {
+            if (nextStepId === 'step3') {
+                const marca = document.getElementById('tipo_automovel').value;
+                const modeloInput = document.getElementById('modelo');
+                
+                if (marca) {
+                    modeloInput.placeholder = `Modelo do(a) ${marca}`;
+                } else {
+                    modeloInput.placeholder = 'Digite o modelo do veículo';
+                }
+            }
             showStep(nextStepId);
         }
 
@@ -412,7 +418,7 @@
             const formData = {};
 
             const fields = [
-                'tipo_automovel', 'marca', 'modelo', 'ano_modelo', 'ano_fabricacao', 'quilometragem',
+                'tipo_automovel', 'modelo', 'ano_modelo', 'ano_fabricacao', 'quilometragem',
                 'combustivel', 'cambio', 'portas', 'placa', 'categoria', 'motorizacao',
                 'tracao', 'consumo_medio', 'potencia', 'potencia_unidade', 'preco',
                 'forma_pagamento', 'cidade_localizacao', 'descricao_anuncio', 'status_anuncio',
@@ -456,7 +462,7 @@
                 <div class="preview-info-section">
                     <h3>Gerais</h3>
                     <p><strong>Tipo de Veículo:</strong> ${data.tipo_veiculo || '-'}</p>
-                    <p><strong>Marca Principal:</strong> ${data.tipo_automovel || '-'}</p>
+                    <p><strong>Marca:</strong> ${data.tipo_automovel || '-'}</p>
                     <p><strong>Preço:</strong> R$ ${data.preco ? parseFloat(data.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2}) : '-'}</p>
                     <p><strong>Localização:</strong> ${data.cidade_localizacao || '-'}</p>
                     <p><strong>Status:</strong> ${statusText}</p>
@@ -464,7 +470,6 @@
                 
                 <div class="preview-info-section">
                     <h3>Veículo</h3>
-                    <p><strong>Marca (Info):</strong> ${data.marca || '-'}</p>
                     <p><strong>Modelo:</strong> ${data.modelo || '-'}</p>
                     <p><strong>Ano Mod/Fab:</strong> ${data.ano_modelo || '-'} / ${data.ano_fabricacao || '-'}</p>
                     <p><strong>Quilometragem:</strong> ${data.quilometragem ? data.quilometragem.toLocaleString('pt-BR') + ' km' : '-'}</p>

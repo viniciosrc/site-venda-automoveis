@@ -283,7 +283,6 @@ input[type="number"] {
     border-top: 1px solid #e0e0e0;
 }
 
-/* Nova regra para centralizar o botão de voltar na pré-visualização */
 .button-group.button-group-center {
     justify-content: center;
 }
