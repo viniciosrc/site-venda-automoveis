@@ -47,8 +47,8 @@ body {
 }
 
 .logo-img {
-    margin-top: 25px;
-    width: 350px; 
+    width: 350px;
+    margin-top: 30px;
 }
 
 .form-card {
@@ -258,7 +258,6 @@ body {
     flex-shrink: 0;
 }
 
-
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -284,6 +283,9 @@ body {
     font-weight: bold;
     transition: background-color 0.2s, opacity 0.2s;
     min-width: 130px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-secondary {

@@ -43,7 +43,7 @@
 
                         <div class="form-group large-input dropdown-group">
                             <label for="tipo_automovel">Qual a marca do automóvel?</label>
-                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Digite ou Clique aqui duas vezes para Sugestões de marcas" list="marca-list" autocomplete="off">
+                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Digite ou Clique aqui duas vezes para ativar a Sugestões de marcas" list="marca-list" autocomplete="off">
                             <datalist id="marca-list">
                                 <option value="Chevrolet"></option>
                                 <option value="Volkswagen"></option>
@@ -98,7 +98,7 @@
                         </div>
 
                         <div class="button-group">
-                            <button type="button" class="btn btn-secondary disabled">Voltar</button>
+                            <a href="/src/pages/home.html" class="btn btn-secondary">Voltar</a>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step2')">Continuar</button>
                         </div>
                     </div>
@@ -351,7 +351,7 @@
             const input = document.getElementById('tipo_automovel');
             
             label.textContent = isCar ? 'Qual a marca do automóvel?' : 'Qual a marca da motocicleta?';
-            input.placeholder = 'Digite ou Clique aqui duas vezes para Sugestões de marcas'; 
+            input.placeholder = 'Digite ou Clique aqui duas vezes para ativar a Sugestões de marcas';
             input.value = ''; 
         }
 
