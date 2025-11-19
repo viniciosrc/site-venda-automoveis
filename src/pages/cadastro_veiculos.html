@@ -15,7 +15,6 @@
                 <a href="home.html">
                     <img src="../assets/image/logo-velocita-preto.png" alt="Logo VELOCITÀ" class="logo-img">
                 </a>
-                
             </header>
         </div>
     </div>
@@ -33,19 +32,18 @@
                                     <img src="../assets/image/carro venda png.png" alt="carro">
                                 </div>
                                 <span class="type-text">Carro</span>
-                                </div>
+                            </div>
                             <div class="type-box" id="moto-category" onclick="selectCategory(false)">
                                 <div class="image-box" id="moto-image">
                                     <img src="../assets/image/logo moto.png" alt="moto">
                                 </div>
                                 <span class="type-text">Moto</span>
-                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group large-input dropdown-group">
                             <label for="tipo_automovel">Qual a marca do automóvel?</label>
-                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Selecione ou digite" list="marca-list" autocomplete="off">
-                            <i class="fas fa-chevron-down dropdown-arrow" onclick="document.getElementById('tipo_automovel').focus()"></i>
+                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Digite ou Clique aqui duas vezes para Sugestões de marcas" list="marca-list" autocomplete="off">
                             <datalist id="marca-list">
                                 <option value="Chevrolet"></option>
                                 <option value="Volkswagen"></option>
@@ -147,11 +145,11 @@
                             <div class="form-group">
                                 <label for="combustivel">Tipo de combustível:</label>
                                 <select id="combustivel" name="combustivel">
-                                    <option value="">Gasolina</option>
-                                    <option value="">Diesel</option>
-                                    <option value="">Flex</option>
-                                    <option value="">Etanol</option>
-                                    <option value="">GNV</option>
+                                    <option value="Gasolina">Gasolina</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Flex">Flex</option>
+                                    <option value="Etanol">Etanol</option>
+                                    <option value="GNV">GNV</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -163,10 +161,10 @@
                             <div class="form-group">
                                 <label for="portas">Número de portas:</label>
                                 <select id="portas" name="portas">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -353,11 +351,10 @@
             const input = document.getElementById('tipo_automovel');
             
             label.textContent = isCar ? 'Qual a marca do automóvel?' : 'Qual a marca da motocicleta?';
-            input.placeholder = 'Selecione ou digite';
+            input.placeholder = 'Digite ou Clique aqui duas vezes para Sugestões de marcas'; 
             input.value = ''; 
         }
 
-        // Função simplificada para apenas selecionar a categoria ao clicar na box
         function selectCategory(isCar) {
             const car = document.getElementById('car-category');
             const moto = document.getElementById('moto-category');
