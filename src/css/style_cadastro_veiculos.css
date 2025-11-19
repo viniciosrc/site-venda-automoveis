@@ -10,6 +10,16 @@ body {
     background-color: #f0f2f5;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .header-background {
     width: 100%;
     background-color: #f0f2f5;
@@ -273,6 +283,11 @@ body {
     border-top: 1px solid #e0e0e0;
 }
 
+/* Nova regra para centralizar o botão de voltar na pré-visualização */
+.button-group.button-group-center {
+    justify-content: center;
+}
+
 .btn {
     padding: 12px 35px;
     border: none;
@@ -339,6 +354,55 @@ body {
     border-color: #a0a0a0;
 }
 
+#preview-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 30px;
+    padding: 20px 0;
+}
+
+.preview-info-section {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #ff7043;
+}
+
+.preview-info-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.preview-info-section p {
+    margin: 8px 0;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.preview-info-section strong {
+    font-weight: 600;
+    color: #555;
+    margin-right: 5px;
+}
+
+.preview-info-section.full-width {
+    grid-column: 1 / -1;
+}
+
+.description-box {
+    white-space: pre-wrap; 
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-style: italic;
+}
+
 @media (max-width: 768px) {
     .header-background {
         padding: 10px 0;
@@ -399,5 +463,10 @@ body {
     }
     .power-input-group select {
         width: 100%;
+    }
+    
+    #preview-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 }

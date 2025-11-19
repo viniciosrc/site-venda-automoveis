@@ -21,7 +21,7 @@
     <div class="main-background">
         <div class="main-container">
             <div class="form-card">
-                <form>
+                <form id="vehicle-form">
                     
                     <div class="form-section current-step" id="step1">
                         <h2>Qual veículo você quer anunciar?</h2>
@@ -156,6 +156,15 @@
                                 <label for="cambio">Câmbio:</label>
                                 <select id="cambio" name="cambio">
                                     <option value="">Selecione</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -288,13 +297,38 @@
                         </div>
                         
                         <div class="button-group-extra">
-                            <button type="button" class="btn btn-secondary-extra">Pré-visualização do anúncio</button>
-                            <button type="button" class="btn btn-secondary-extra">Adicionar mais fotos</button>
+                            <button type="button" class="btn btn-secondary-extra" onclick="previewAd()">Pré-visualização do anúncio</button>
+                            <button type="button" class="btn btn-secondary-extra" onclick="goToStepPhotos()">Adicionar mais fotos</button>
                         </div>
 
                         <div class="button-group">
                             <button type="button" class="btn btn-secondary" onclick="prevStep('step5')">Voltar</button>
                             <button type="submit" class="btn btn-primary">Publicar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step6-fotos">
+                        <h2>Adicionar mais fotos</h2>
+                        <div class="photo-upload-box" onclick="document.getElementById('photo-upload-extra').click()">
+                            <p>Adicione fotos adicionais nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
+                            <div class="drag-drop-area">Arraste as fotos para cá ou</div>
+                            <button type="button" class="btn-add-photos">(+) Clique para adicionar mais fotos</button>
+                            <input type="file" id="photo-upload-extra" name="photos_extra[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;">
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step6')">Voltar aos Extras</button>
+                            <button type="button" class="btn btn-primary" onclick="previewAd()">Pré-visualização do Anúncio</button>
+                        </div>
+                    </div>
+
+                    <div class="form-section hidden-step" id="step7">
+                        <h2>Pré-visualização do Anúncio</h2>
+                        <div id="preview-content">
+                            
+                        </div>
+                        <div class="button-group button-group-center">
+                            <button type="button" class="btn btn-secondary" onclick="prevStep('step6')">Voltar ao Formulário</button>
                         </div>
                     </div>
 
@@ -368,6 +402,115 @@
             }
             updateMarcaDropdown(isCar);
         }
+
+        function goToStepPhotos() {
+            showStep('step6-fotos');
+        }
+
+        function getFormData() {
+            const form = document.getElementById('vehicle-form');
+            const formData = {};
+
+            const fields = [
+                'tipo_automovel', 'marca', 'modelo', 'ano_modelo', 'ano_fabricacao', 'quilometragem',
+                'combustivel', 'cambio', 'portas', 'placa', 'categoria', 'motorizacao',
+                'tracao', 'consumo_medio', 'potencia', 'potencia_unidade', 'preco',
+                'forma_pagamento', 'cidade_localizacao', 'descricao_anuncio', 'status_anuncio',
+                'tags', 'consumo_medio_extra'
+            ];
+
+            fields.forEach(id => {
+                const element = form.elements[id];
+                if (element) {
+                    formData[id] = element.value;
+                }
+            });
+
+            const radioFields = ['procedencia', 'termo_solar', 'condicao'];
+            radioFields.forEach(name => {
+                const checkedRadio = form.querySelector(`input[name="${name}"]:checked`);
+                if (checkedRadio) {
+                    formData[name] = checkedRadio.value;
+                }
+            });
+
+            const checkboxes = form.querySelectorAll('input[name="opcional"]:checked');
+            formData['opcionais'] = Array.from(checkboxes).map(cb => {
+                const labelElement = cb.closest('label');
+                return labelElement ? labelElement.textContent.trim() : cb.value;
+            });
+            
+            const isCar = document.getElementById('car-category').classList.contains('active-category');
+            formData['tipo_veiculo'] = isCar ? 'Carro' : 'Moto';
+
+            return formData;
+        }
+
+        function formatPreviewContent(data) {
+            const statusText = data.status_anuncio === 'rascunho' ? 'Ativo' : (data.status_anuncio === 'ativo' ? 'Inativo' : '-');
+            const condicaoText = data.condicao === 'novo' ? 'Novo' : (data.condicao === 'usado' ? 'Usado' : '-');
+            const procedenciaText = data.procedencia === 'nacional' ? 'Nacional' : (data.procedencia === 'importada' ? 'Importada' : '-');
+            const termoSolarText = data.termo_solar === 'sim' ? 'Sim' : (data.termo_solar === 'nao' ? 'Não' : '-');
+
+            return `
+                <div class="preview-info-section">
+                    <h3>Gerais</h3>
+                    <p><strong>Tipo de Veículo:</strong> ${data.tipo_veiculo || '-'}</p>
+                    <p><strong>Marca Principal:</strong> ${data.tipo_automovel || '-'}</p>
+                    <p><strong>Preço:</strong> R$ ${data.preco ? parseFloat(data.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2}) : '-'}</p>
+                    <p><strong>Localização:</strong> ${data.cidade_localizacao || '-'}</p>
+                    <p><strong>Status:</strong> ${statusText}</p>
+                </div>
+                
+                <div class="preview-info-section">
+                    <h3>Veículo</h3>
+                    <p><strong>Marca (Info):</strong> ${data.marca || '-'}</p>
+                    <p><strong>Modelo:</strong> ${data.modelo || '-'}</p>
+                    <p><strong>Ano Mod/Fab:</strong> ${data.ano_modelo || '-'} / ${data.ano_fabricacao || '-'}</p>
+                    <p><strong>Quilometragem:</strong> ${data.quilometragem ? data.quilometragem.toLocaleString('pt-BR') + ' km' : '-'}</p>
+                    <p><strong>Placa:</strong> ${data.placa || '-'}</p>
+                    <p><strong>Portas:</strong> ${data.portas || '-'}</p>
+                    <p><strong>Categoria:</strong> ${data.categoria || '-'}</p>
+                </div>
+                
+                <div class="preview-info-section">
+                    <h3>Técnicos</h3>
+                    <p><strong>Câmbio:</strong> ${data.cambio || '-'}</p>
+                    <p><strong>Combustível:</strong> ${data.combustivel || '-'}</p>
+                    <p><strong>Potência:</strong> ${data.potencia ? data.potencia + ' ' + (data.potencia_unidade.toUpperCase() || '') : '-'}</p>
+                    <p><strong>Motorização:</strong> ${data.motorizacao || '-'}</p>
+                    <p><strong>Tração:</strong> ${data.tracao || '-'}</p>
+                    <p><strong>Consumo Médio:</strong> ${data.consumo_medio || data.consumo_medio_extra || '-'}</p>
+                    <p><strong>Condição:</strong> ${condicaoText}</p>
+                    <p><strong>Procedência:</strong> ${procedenciaText}</p>
+                    <p><strong>Termo Solar:</strong> ${termoSolarText}</p>
+                </div>
+
+                <div class="preview-info-section full-width">
+                    <h3>Opcionais</h3>
+                    <p>${data.opcionais && data.opcionais.length > 0 ? data.opcionais.join(' | ') : 'Nenhum opcional selecionado'}</p>
+                </div>
+                
+                <div class="preview-info-section full-width">
+                    <h3>Descrição e Venda</h3>
+                    <p><strong>Descrição:</strong></p>
+                    <p class="description-box">${data.descricao_anuncio || 'Nenhuma descrição fornecida.'}</p>
+                    <p><strong>Forma de Pagamento:</strong> ${data.forma_pagamento || '-'}</p>
+                    <p><strong>Tags:</strong> ${data.tags || '-'}</p>
+                </div>
+            `;
+        }
+
+        function previewAd() {
+            const data = getFormData();
+            const previewHtml = formatPreviewContent(data);
+            
+            const previewContainer = document.getElementById('preview-content');
+            previewContainer.innerHTML = previewHtml;
+
+            showStep('step7');
+        }
+
 
         document.addEventListener('DOMContentLoaded', () => {
             showStep('step1');
