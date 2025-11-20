@@ -1,0 +1,489 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocita</title>
+    <link rel="stylesheet" href="../css/style_tabelaFipe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-orange': '#ff7043', /* Cor do botão 'Consultar tabela' */
+                        'v-input': '#f8f8f8',  /* Cor de fundo dos inputs */
+                        'v-gray': '#f7f7f9',   /* Cor de fundo principal */
+                        'v-dark-text': '#222222',
+                    },
+                }
+            }
+        }
+    </script>
+
+</head>
+<body class="main-header">
+    <header class="main-header">
+        <div class="header-content">
+            
+            <a href="home.html" class="logo-container">
+                <img class="logo-home-velocita" src="../assets/image/logovelocita-home.png" alt="logoHome velocita">
+            </a>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-link">Comprar</a>
+                <a href="cadastro_veiculos.html" class="nav-link">Vender</a>
+                <a href="#" class="nav-link">Tabela Fipe</a>
+                <a href="#" class="nav-link">Ajuda</a>
+            </nav>
+
+            <div class="access-icons">
+                <a href="login_card.html" class="access-link">
+                    <i class="fas fa-user-circle access-icon"></i>
+                </a>
+                <a href="../pages/cadastro.html" class="access-text">Entrar & Cadastrar</a>
+                
+                <a href="#" class="favorite-link">
+                    <i class="fas fa-heart favorite-icon"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal da Consulta FIPE -->
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-16">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Coluna de Consulta (Lado Esquerdo) -->
+            <div class="lg:w-1/2">
+                <h1 class="text-4xl font-light text-v-dark-text mb-2">
+                    Consulte sua Tabela Fipe
+                </h1>
+                <p class="text-lg text-gray-500 mb-10">(valores atualizados)</p>
+
+                <!-- Campo de Seleção: Tipo de Veículo (Input com Dropdown Simulado) -->
+                <div class="mb-5 relative" id="vehicle-type-container">
+                    <label for="vehicle-type-input" class="block text-sm font-semibold text-gray-700 mb-1">Tipo de Veículo</label>
+                    
+                    <div class="custom-select-input w-full p-3 border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-v-orange transition duration-150 flex items-center justify-between shadow-sm" onclick="toggleDropdown()">
+                        <span id="vehicle-type-display" class="text-gray-800">Selecione o Tipo</span>
+                        <!-- Ícone de seta para baixo -->
+                        <svg id="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down text-gray-500 transition-transform duration-200"><path d="m6 9 6 6 6-6"/></svg>
+                    </div>
+
+                    <!-- Dropdown de Opções (Escondido por padrão) -->
+                    <div id="vehicle-type-dropdown" class="options-dropdown w-full mt-1 hidden">
+                        <div class="option-item" data-value="carros" onclick="selectCategory('carros', 'Carro')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-car mr-3"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9.5-1.4.2-3.2-1-4.2C17.5 4.7 15.5 5 13 5c-4 0-6 2-6 2"/><path d="M12 21H6c-2 0-3-1-3-3V9.5a2.5 2.5 0 0 1 5 0V17h14"/><path d="M6 17v-2a1 1 0 0 1 1-1h1.5l.5 2.5.5-2.5h2l.5 2.5.5-2.5H16l.5 2.5.5-2.5H18"/><path d="M6 14h5"/><path d="M13 14h2"/><circle cx="7" cy="10" r="2"/></svg>
+                            Carro
+                        </div>
+                        <div class="option-item" data-value="motos" onclick="selectCategory('motos', 'Moto')">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bike mr-3"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6s1.5-2 4-2 3.5 2 3.5 2V8.5s-2-2.5-5.5-2.5S15 8.5 15 8.5z"/><path d="m5.5 14-.1-2.3-2.6-1.5-.7-.4L2 9.4s-.7 3.5 2.5 3.5c3.2 0 4.2-2 4.2-2"/><path d="M10 13c.5 1 1.5 2 3 2s2.5-1.5 3-2c-.5-1-1.5-2-3-2s-2.5 1.5-3 2Z"/><path d="M15.5 17.5h-8"/></svg>
+                            Moto
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campos de Seleção (Combobox em cascata) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    
+                    <div>
+                        <label for="brand-select" class="block text-sm font-semibold text-gray-700 mb-1">Marca</label>
+                        <select id="brand-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-v-orange transition duration-150 appearance-none bg-white shadow-sm" disabled onchange="loadModels()">
+                            <option value="">Selecione a Marca</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="model-select" class="block text-sm font-semibold text-gray-700 mb-1">Modelo</label>
+                        <select id="model-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-v-orange transition duration-150 appearance-none bg-white shadow-sm" disabled onchange="loadYears()">
+                            <option value="">Selecione o Modelo</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <label for="year-select" class="block text-sm font-semibold text-gray-700 mb-1">Ano/Combustível</label>
+                    <select id="year-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-v-orange transition duration-150 appearance-none bg-white shadow-sm" disabled>
+                        <option value="">Selecione o Ano</option>
+                    </select>
+                </div>
+                
+                <!-- Botão de Consulta -->
+                <button onclick="consultFipe()" id="consult-btn" class="w-full bg-v-orange text-white font-bold py-3 rounded-xl hover:bg-orange-600 transition duration-300 shadow-lg disabled:bg-orange-300">
+                    Consultar Tabela Fipe
+                </button>
+                
+                <!-- Mensagem de status (Loading, Erro) -->
+                <div id="message-box" class="mt-4 p-3 rounded-lg font-medium hidden text-center"></div>
+            </div>
+
+            <!-- Coluna de Resultados (Lado Direito) - Onde o resultado FIPE aparece -->
+            <div class="lg:w-1/2 result-column">
+                <h2 class="text-2xl font-bold text-v-dark-text mb-6">Tabela Fipe do seu Veículo</h2>
+                
+                <!-- Área de Resultados (Detalhes) -->
+                <div id="result-area" class="space-y-2 hidden">
+                    
+                    <div class="result-item">
+                        <span class="result-label">Código FIPE</span>
+                        <span id="fipe-code" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Marca</span>
+                        <span id="fipe-brand" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Modelo</span>
+                        <span id="fipe-model" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Ano</span>
+                        <span id="fipe-year" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Combustível</span>
+                        <span id="fipe-fuel" class="result-value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Data de Consulta</span>
+                        <span id="fipe-date" class="result-value"></span>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-gray-400 mt-4 flex flex-col items-center">
+                        <p class="text-xl font-semibold text-gray-700">Preço Médio</p>
+                        <p id="fipe-price" class="result-value large mt-1">R$ 0,00</p>
+                    </div>
+                </div>
+
+                <!-- Placeholder inicial -->
+                <div id="placeholder-area" class="text-center py-16 text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-check mx-auto mb-4"><path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <p class="text-lg font-medium">Preencha os dados à esquerda para consultar a Fipe.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // API Base (Comentada - Conforme sua solicitação)
+        // const BASE_API_URL = 'https://brasilapi.com.br/api/fipe/v1'; 
+        const DUMMY_API_DELAY = 800; // Simulação de delay da API
+
+        // Variável de estado para o tipo de veículo selecionado (inicia vazia)
+        let selectedVehicleType = null; 
+
+        // Dados estáticos (Mock) para simular a Tabela FIPE sem a API
+        const MOCK_DATA = {
+            carros: {
+                marcas: [
+                    { nome: 'Volkswagen', codigo: '21' },
+                    { nome: 'Fiat', codigo: '23' },
+                    { nome: 'Chevrolet', codigo: '43' },
+                    { nome: 'Ford', codigo: '22' },
+                ],
+                modelos: {
+                    '21': [{ nome: 'Gol 1.0', codigo: '210057-7' }, { nome: 'Jetta 2.0 Comfortline', codigo: '210086-0' }],
+                    '23': [{ nome: 'Palio Fire', codigo: '230043-4' }, { nome: 'Toro Ranch Diesel', codigo: '230182-1' }],
+                },
+                anos: {
+                    '210057-7': [{ nome: '2015 Gasolina', codigo: '2015-1' }, { nome: '2018 Flex', codigo: '2018-3' }],
+                },
+                fipe: {
+                    '2015-1': { CodigoFipe: '005400-0', Marca: 'VW - VolksWagen', Modelo: 'Gol 1.0', AnoModelo: 2015, Combustivel: 'Gasolina', MesReferencia: 'Novembro de 2025', Valor: 'R$ 28.500,00' }
+                }
+            },
+            motos: {
+                marcas: [
+                    { nome: 'Honda', codigo: '80' },
+                    { nome: 'Yamaha', codigo: '82' },
+                ],
+                modelos: {
+                    '80': [{ nome: 'CG 160 Fan', codigo: '800041-9' }, { nome: 'CB 500F', codigo: '800091-5' }],
+                },
+                anos: {
+                    '800041-9': [{ nome: '2020 Gasolina', codigo: '2020-1' }, { nome: '2024 Gasolina', codigo: '2024-1' }],
+                },
+                fipe: {
+                    '2020-1': { CodigoFipe: '814050-2', Marca: 'Honda', Modelo: 'CG 160 Fan', AnoModelo: 2020, Combustivel: 'Gasolina', MesReferencia: 'Novembro de 2025', Valor: 'R$ 14.200,00' }
+                }
+            }
+        };
+
+
+        const elements = {
+            // Novos elementos do dropdown
+            vehicleTypeDisplay: document.getElementById('vehicle-type-display'),
+            vehicleTypeDropdown: document.getElementById('vehicle-type-dropdown'),
+            dropdownArrow: document.getElementById('dropdown-arrow'),
+
+            brand: document.getElementById('brand-select'),
+            model: document.getElementById('model-select'),
+            year: document.getElementById('year-select'),
+            message: document.getElementById('message-box'),
+            consultBtn: document.getElementById('consult-btn'),
+            resultArea: document.getElementById('result-area'),
+            placeholderArea: document.getElementById('placeholder-area'),
+        };
+        
+        // =========================================================================
+        // Funções de Interação do Dropdown (Tipo de Veículo)
+        // =========================================================================
+        
+        /**
+         * Alterna a visibilidade do dropdown de tipos de veículo.
+         */
+        function toggleDropdown() {
+            const isHidden = elements.vehicleTypeDropdown.classList.toggle('hidden');
+            if (isHidden) {
+                elements.dropdownArrow.classList.remove('rotate-180');
+            } else {
+                elements.dropdownArrow.classList.add('rotate-180');
+            }
+        }
+
+        /**
+         * Seleciona o tipo de veículo, atualiza o display e dispara o carregamento das marcas.
+         * @param {string} type 'carros' ou 'motos'.
+         * @param {string} displayName Nome a ser exibido no input (ex: 'Carro').
+         */
+        function selectCategory(type, displayName) {
+            
+            // Se o tipo já estiver selecionado, apenas fecha o dropdown
+            if (selectedVehicleType === type && elements.brand.options.length > 1) {
+                toggleDropdown();
+                return;
+            }
+
+            selectedVehicleType = type;
+            elements.vehicleTypeDisplay.textContent = displayName;
+            
+            // Destaca a opção selecionada no dropdown
+            const options = elements.vehicleTypeDropdown.querySelectorAll('.option-item');
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+                if (opt.getAttribute('data-value') === type) {
+                    opt.classList.add('selected');
+                }
+            });
+            
+            toggleDropdown(); // Fecha o dropdown após a seleção
+            loadBrands(); // Dispara o carregamento em cascata
+        }
+
+
+        // =========================================================================
+        // Funções de Utilidade (UI e State Management)
+        // =========================================================================
+
+        /**
+         * Exibe mensagens de status (carregando, erro)
+         * @param {string} text O texto da mensagem.
+         * @param {string} type O tipo de mensagem ('loading', 'error').
+         */
+        function showMessage(text, type = 'info') {
+            elements.message.textContent = text;
+            elements.message.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-yellow-100', 'text-yellow-800');
+            
+            if (type === 'error') {
+                elements.message.classList.add('bg-red-100', 'text-red-800');
+            } else if (type === 'loading') {
+                elements.message.classList.add('bg-yellow-100', 'text-yellow-800');
+            }
+        }
+
+        /**
+         * Limpa e desabilita os selects subsequentes ao índice fornecido.
+         * @param {number} startIndex O índice do select a partir do qual limpar (1=Marca, 2=Modelo, 3=Ano).
+         */
+        function resetSelects(startIndex) {
+            const selects = [elements.brand, elements.model, elements.year];
+            for (let i = startIndex - 1; i < selects.length; i++) {
+                selects[i].innerHTML = '<option value="">Selecione...</option>';
+                selects[i].disabled = true;
+            }
+            elements.consultBtn.disabled = true;
+            elements.message.classList.add('hidden');
+            elements.resultArea.classList.add('hidden');
+            elements.placeholderArea.classList.remove('hidden');
+        }
+
+
+        // =========================================================================
+        // Funções de Interação (Simulando Carregamento em Cascata)
+        // =========================================================================
+
+        /**
+         * 1. Carrega todas as Marcas para o tipo de veículo selecionado (Simulado).
+         */
+        async function loadBrands() {
+            resetSelects(1); 
+
+            if (!selectedVehicleType) {
+                 showMessage('Selecione primeiro o Tipo de Veículo acima.', 'info');
+                 return;
+            }
+
+            showMessage(`Carregando marcas de ${selectedVehicleType === 'carros' ? 'carros' : 'motos'}...`, 'loading');
+
+            // Simula a chamada fetch com um pequeno delay
+            await new Promise(resolve => setTimeout(resolve, DUMMY_API_DELAY));
+            
+            const brands = MOCK_DATA[selectedVehicleType].marcas || [];
+            
+            elements.brand.innerHTML = '<option value="">Selecione a Marca</option>';
+
+            brands.forEach(brand => {
+                const option = document.createElement('option');
+                option.value = brand.codigo;
+                option.textContent = brand.nome;
+                elements.brand.appendChild(option);
+            });
+
+            elements.brand.disabled = brands.length === 0;
+            elements.message.classList.add('hidden');
+        }
+
+        /**
+         * 2. Carrega os Modelos após a seleção da Marca (Simulado).
+         */
+        async function loadModels() {
+            const brandCode = elements.brand.value;
+            resetSelects(2); 
+            
+            if (!brandCode) return;
+            
+            showMessage('Carregando modelos...', 'loading');
+
+            // Simula a chamada fetch com um pequeno delay
+            await new Promise(resolve => setTimeout(resolve, DUMMY_API_DELAY));
+            
+            const models = MOCK_DATA[selectedVehicleType].modelos[brandCode] || [];
+            
+            elements.model.innerHTML = '<option value="">Selecione o Modelo</option>';
+
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.codigo;
+                option.textContent = model.nome;
+                elements.model.appendChild(option);
+            });
+
+            elements.model.disabled = models.length === 0;
+            elements.message.classList.add('hidden');
+        }
+
+        /**
+         * 3. Carrega os Anos/Combustível após a seleção do Modelo (Simulado).
+         */
+        async function loadYears() {
+            const modelCode = elements.model.value;
+            resetSelects(3); 
+
+            if (!modelCode) return;
+            
+            showMessage('Carregando anos/combustível...', 'loading');
+
+            // Simula a chamada fetch com um pequeno delay
+            await new Promise(resolve => setTimeout(resolve, DUMMY_API_DELAY));
+            
+            const years = MOCK_DATA[selectedVehicleType].anos[modelCode] || [];
+            
+            elements.year.innerHTML = '<option value="">Selecione o Ano</option>';
+
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year.codigo; 
+                option.textContent = `${year.nome}`; 
+                elements.year.appendChild(option);
+            });
+
+            elements.year.disabled = years.length === 0;
+            // Habilita o botão de consulta se houver anos disponíveis
+            elements.consultBtn.disabled = years.length === 0; 
+            elements.message.classList.add('hidden');
+        }
+
+        /**
+         * 4. Consulta Final do Valor Fipe (Simulado).
+         */
+        async function consultFipe() {
+            const yearCode = elements.year.value; 
+
+            if (!yearCode) {
+                showMessage('Por favor, selecione o Ano/Combustível.', 'error');
+                return;
+            }
+
+            elements.consultBtn.textContent = 'Consultando...';
+            elements.consultBtn.disabled = true;
+            showMessage('Buscando valor na Tabela FIPE (Simulação)...', 'loading');
+
+            // Simula a chamada fetch com um pequeno delay
+            await new Promise(resolve => setTimeout(resolve, DUMMY_API_DELAY * 1.5));
+            
+            // Pega o resultado FIPE simulado (usando o primeiro ano como exemplo)
+            let result;
+            try {
+                // Tenta encontrar o mock data com o yearCode
+                const modelCode = elements.model.value;
+                result = MOCK_DATA[selectedVehicleType].anos[modelCode].find(y => y.codigo === yearCode);
+
+                if (!result) {
+                    // Se não encontrar o ano exato no mock, pega o primeiro mock de fipe disponível (apenas para exibição)
+                    const mockFipe = MOCK_DATA[selectedVehicleType].fipe;
+                    const firstKey = Object.keys(mockFipe)[0];
+                    result = mockFipe[firstKey];
+                } else {
+                    // Se encontrar, usa o mock de Fipe completo
+                    const mockFipe = MOCK_DATA[selectedVehicleType].fipe;
+                    const firstKey = Object.keys(mockFipe)[0];
+                    result = mockFipe[firstKey];
+                }
+
+            } catch (e) {
+                showMessage('Erro na simulação dos dados. Tente recarregar.', 'error');
+                elements.consultBtn.textContent = 'Consultar Tabela Fipe';
+                elements.consultBtn.disabled = false;
+                return;
+            }
+
+            // Preenche a área de resultado
+            document.getElementById('fipe-code').textContent = result.CodigoFipe || 'N/A';
+            document.getElementById('fipe-brand').textContent = elements.brand.options[elements.brand.selectedIndex].textContent;
+            document.getElementById('fipe-model').textContent = elements.model.options[elements.model.selectedIndex].textContent;
+            document.getElementById('fipe-year').textContent = yearCode.split('-')[0]; // Pega só o ano
+            document.getElementById('fipe-fuel').textContent = yearCode.split(' ')[1] || 'N/A'; // Pega só o combustível
+            document.getElementById('fipe-date').textContent = result.MesReferencia || 'N/A';
+            document.getElementById('fipe-price').textContent = result.Valor || 'R$ 0,00';
+            
+            // Exibe o resultado e esconde mensagens/placeholder
+            elements.resultArea.classList.remove('hidden');
+            elements.placeholderArea.classList.add('hidden');
+            elements.message.classList.add('hidden');
+
+            elements.consultBtn.textContent = 'Consultar Tabela Fipe';
+            elements.consultBtn.disabled = false;
+        }
+
+        // =========================================================================
+        // Inicialização
+        // =========================================================================
+
+        // Adiciona um listener para fechar o dropdown ao clicar fora dele
+        document.addEventListener('click', (event) => {
+            const container = document.getElementById('vehicle-type-container');
+            if (!container.contains(event.target)) {
+                elements.vehicleTypeDropdown.classList.add('hidden');
+                elements.dropdownArrow.classList.remove('rotate-180');
+            }
+        });
+
+        // Não carrega as marcas na inicialização, pois o tipo ainda não foi escolhido.
+        window.onload = () => {
+             resetSelects(1);
+             showMessage('Selecione o Tipo de Veículo para começar.', 'info');
+        }
+    </script>
+</body>
+</html>
