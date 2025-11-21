@@ -1,0 +1,82 @@
+.main-footer {
+    background-color: var(--dark-black);
+    color: var(--white);
+    padding: 18px 10px 12px;
+    margin-top: 2.2rem;
+}
+
+.footer-content {
+    margin: 0 auto;
+}
+
+/* Links do Footer */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-red);
+}
+
+/* Informações da Empresa */
+.footer-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.footer-company-info {
+    font-size: 0.875rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Logo do Footer */
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+}
+
+hr {
+    width: 120%;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+    border: none;
+    border-top: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .footer-company-info {
+        font-size: 0.75rem;
+    }
+
+    .footer-logo {
+        height: 60px;
+    }
+}

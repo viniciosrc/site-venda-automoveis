@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VELOCITÀ - Cadastro de Veículo</title>
-    <link rel="stylesheet" href="../css/style_cadastro_veiculos.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style_cadastro_veiculos.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="header-background">
-        <div class="main-container">
+    <div class="header-background w-100 mb-5">
+        <div class="container main-container">
             <header class="header">
                 <a href="home.html">
                     <img src="../assets/image/logo-velocita-preto.png" alt="Logo VELOCITÀ" class="logo-img">
@@ -18,312 +18,285 @@
             </header>
         </div>
     </div>
-    <div class="main-background">
-        <div class="main-container">
-            <div class="form-card">
+    
+    <div class="main-background w-100 flex-grow-1 d-flex justify-content-center pb-5">
+        <div class="container main-container">
+            <div class="form-card mx-auto">
                 <form id="vehicle-form">
                     
                     <div class="form-section current-step" id="step1">
-                        <h2>Qual veículo você quer anunciar?</h2>
+                        <h2 class="text-center mb-5">Qual veículo você quer anunciar?</h2>
 
-                        <div class="vehicle-type-selection">
-                            <div class="type-box active-category" id="car-category" onclick="selectCategory(true)">
-                                <div class="image-box" id="car-image">
-                                    <img src="../assets/image/carro venda png.png" alt="carro">
+                        <div class="vehicle-type-selection d-flex justify-content-center gap-3 mb-5">
+                            <div class="type-box active-category p-3 rounded shadow-sm border border-2 text-center" id="car-category" onclick="selectCategory(true)">
+                                <div class="image-box mx-auto mb-2">
+                                    <img src="../assets/image/carro venda png.png" alt="carro" class="img-fluid">
                                 </div>
                                 <span class="type-text">Carro</span>
                             </div>
-                            <div class="type-box" id="moto-category" onclick="selectCategory(false)">
-                                <div class="image-box" id="moto-image">
-                                    <img src="../assets/image/logo moto.png" alt="moto">
+                            <div class="type-box p-3 rounded shadow-sm border border-2 text-center" id="moto-category" onclick="selectCategory(false)">
+                                <div class="image-box mx-auto mb-2">
+                                    <img src="../assets/image/logo moto.png" alt="moto" class="img-fluid">
                                 </div>
                                 <span class="type-text">Moto</span>
                             </div>
                         </div>
 
-                        <div class="form-group large-input dropdown-group">
-                            <label for="tipo_automovel">Qual a marca do automóvel?</label>
-                            <input type="text" id="tipo_automovel" name="tipo_automovel" placeholder="Digite ou Clique aqui duas vezes para ativar a Sugestões de marcas" list="marca-list" autocomplete="off">
+                        <div class="form-group large-input dropdown-group mb-4">
+                            <label for="tipo_automovel" class="form-label">Qual a marca do automóvel?</label>
+                            <input type="text" id="tipo_automovel" name="tipo_automovel" class="form-control form-control-lg border-primary border-3" placeholder="Digite ou Clique aqui duas vezes para ativar a Sugestões de marcas" list="marca-list" autocomplete="off">
                             <datalist id="marca-list">
-                                <option value="Chevrolet"></option>
-                                <option value="Volkswagen"></option>
-                                <option value="Fiat"></option>
-                                <option value="Ford"></option>
-                                <option value="Renault"></option>
-                                <option value="Toyota"></option>
-                                <option value="Hyundai"></option>
-                                <option value="Jeep"></option>
-                                <option value="Honda"></option>
-                                <option value="Nissan"></option>
-                                <option value="Mercedes-Benz"></option>
-                                <option value="BMW"></option>
-                                <option value="Audi"></option>
-                                <option value="Volvo"></option>
-                                <option value="Land Rover"></option>
-                                <option value="Citroën"></option>
-                                <option value="Peugeot"></option>
-                                <option value="Kia"></option>
-                                <option value="Mitsubishi"></option>
-                                <option value="Subaru"></option>
-                                <option value="Lexus"></option>
-                                <option value="Porsche"></option>
-                                <option value="Ferrari"></option>
-                                <option value="Lamborghini"></option>
-                                <option value="Maserati"></option>
-                                <option value="Rolls-Royce"></option>
-                                <option value="Jaguar"></option>
-                                <option value="Mini"></option>
-                                <option value="Smart"></option>
-                                <option value="Chery"></option>
-                                <option value="JAC Motors"></option>
-                                <option value="Effa"></option>
-                                <option value="Suzuki"></option>
-                                <option value="Dodge"></option>
-                                <option value="Chrysler"></option>
-                                <option value="RAM"></option>
-                                <option value="Lifan"></option>
-                                <option value="Shineray"></option>
-                                <option value="BYD"></option>
-                                <option value="GWM"></option>
-                                <option value="Tesla"></option>
-                                <option value="McLaren"></option>
-                                <option value="Bugatti"></option>
-                                <option value="Acura"></option>
-                                <option value="Infiniti"></option>
-                                <option value="Geely"></option>
-                                <option value="Troller"></option>
-                                <option value="Iveco"></option>
-                                <option value="Sinotruk"></option>
+                                <option value="Chevrolet"></option><option value="Volkswagen"></option><option value="Fiat"></option><option value="Ford"></option><option value="Renault"></option><option value="Toyota"></option><option value="Hyundai"></option><option value="Jeep"></option><option value="Honda"></option><option value="Nissan"></option><option value="Mercedes-Benz"></option><option value="BMW"></option><option value="Audi"></option><option value="Volvo"></option><option value="Land Rover"></option><option value="Citroën"></option><option value="Peugeot"></option><option value="Kia"></option><option value="Mitsubishi"></option><option value="Subaru"></option><option value="Lexus"></option><option value="Porsche"></option><option value="Ferrari"></option><option value="Lamborghini"></option><option value="Maserati"></option><option value="Rolls-Royce"></option><option value="Jaguar"></option><option value="Mini"></option><option value="Smart"></option><option value="Chery"></option><option value="JAC Motors"></option><option value="Effa"></option><option value="Suzuki"></option><option value="Dodge"></option><option value="Chrysler"></option><option value="RAM"></option><option value="Lifan"></option><option value="Shineray"></option><option value="BYD"></option><option value="GWM"></option><option value="Tesla"></option><option value="McLaren"></option><option value="Bugatti"></option><option value="Acura"></option><option value="Infiniti"></option><option value="Geely"></option><option value="Troller"></option><option value="Iveco"></option><option value="Sinotruk"></option>
                             </datalist>
                         </div>
 
-                        <div class="button-group">
-                            <a href="/src/pages/home.html" class="btn btn-secondary">Voltar</a>
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <a href="/src/pages/home.html" class="btn btn-secondary me-2">Voltar</a>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step2')">Continuar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step2">
-                        <h2>Adicione as fotos do automóvel</h2>
-                        <div class="photo-upload-box" onclick="document.getElementById('photo-upload').click()">
-                            <p>Até 12 fotos nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
-                            <div class="drag-drop-area">Arraste as fotos para cá ou</div>
-                            <button type="button" class="btn-add-photos">(+) Clique para adicionar as fotos</button>
-                            <input type="file" id="photo-upload" name="photos[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;">
+                        <h2 class="text-center mb-4">Adicione as fotos do automóvel</h2>
+                        <div class="photo-upload-box border-3 border-dashed border-secondary-subtle p-5 rounded-4 bg-light text-center mb-3" onclick="document.getElementById('photo-upload').click()">
+                            <p class="text-muted mb-4">Até 12 fotos nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
+                            <div class="drag-drop-area h5 text-dark fw-bold mb-3">Arraste as fotos para cá ou</div>
+                            <button type="button" class="btn-add-photos btn btn-outline-primary">
+                                (+) Clique para adicionar as fotos
+                            </button>
+                            <input type="file" id="photo-upload" name="photos[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;" onchange="displayFileNames('photo-upload', 'uploaded-files-list-step2')">
                         </div>
 
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step1')">Voltar</button>
+                        <div id="uploaded-files-list-step2" class="mb-4"></div>
+
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step1')">Voltar</button>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step3')">Continuar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step3">
-                        <h2>Informações do Veículo</h2>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="modelo">Modelo:</label>
-                                <input type="text" id="modelo" name="modelo" placeholder="">
+                        <h2 class="text-center mb-4">Informações do Veículo</h2>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label for="modelo" class="form-label">Modelo:</label>
+                                <input type="text" id="modelo" name="modelo" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="ano_modelo">Ano do modelo:</label>
-                                <input type="number" id="ano_modelo" name="ano_modelo" placeholder="">
+                            <div class="col-md-6">
+                                <label for="ano_modelo" class="form-label">Ano do modelo:</label>
+                                <input type="number" id="ano_modelo" name="ano_modelo" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="ano_fabricacao">Ano de fabricação:</label>
-                                <input type="number" id="ano_fabricacao" name="ano_fabricacao" placeholder="">
+                            <div class="col-md-6">
+                                <label for="ano_fabricacao" class="form-label">Ano de fabricação:</label>
+                                <input type="number" id="ano_fabricacao" name="ano_fabricacao" class="form-control" placeholder="">
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="quilometragem">Quilometragem:</label>
-                                <input type="number" id="quilometragem" name="quilometragem" placeholder="">
+                            <div class="col-md-6">
+                                <label for="quilometragem" class="form-label">Quilometragem:</label>
+                                <input type="number" id="quilometragem" name="quilometragem" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="combustivel">Tipo de combustível:</label>
-                                <select id="combustivel" name="combustivel">
-                                    <option value="Gasolina">Gasolina</option>
-                                    <option value="Diesel">Diesel</option>
-                                    <option value="Flex">Flex</option>
-                                    <option value="Etanol">Etanol</option>
-                                    <option value="GNV">GNV</option>
+                            <div class="col-md-6">
+                                <label for="combustivel" class="form-label">Tipo de combustível:</label>
+                                <select id="combustivel" name="combustivel" class="form-select">
+                                    <option value="Gasolina">Gasolina</option><option value="Diesel">Diesel</option><option value="Flex">Flex</option><option value="Etanol">Etanol</option><option value="GNV">GNV</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="cambio">Câmbio:</label>
-                                <select id="cambio" name="cambio">
-                                    <option value="">Selecione</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
+                            <div class="col-md-6">
+                                <label for="cambio" class="form-label">Câmbio:</label>
+                                <select id="cambio" name="cambio" class="form-select">
+                                    <option value="">Selecione</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="portas">Número de portas:</label>
-                                <select id="portas" name="portas">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
+                            <div class="col-md-6">
+                                <label for="portas" class="form-label">Número de portas:</label>
+                                <select id="portas" name="portas" class="form-select">
+                                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="placa">Placa:</label>
-                                <input type="text" id="placa" name="placa" placeholder="">
+                            <div class="col-md-6">
+                                <label for="placa" class="form-label">Placa:</label>
+                                <input type="text" id="placa" name="placa" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="categoria">Categoria:</label>
-                                <input type="text" id="categoria" name="categoria" placeholder="">
+                            <div class="col-md-12">
+                                <label for="categoria" class="form-label">Categoria:</label>
+                                <input type="text" id="categoria" name="categoria" class="form-control" placeholder="">
                             </div>
                         </div>
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step2')">Voltar</button>
+                        
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step2')">Voltar</button>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step4')">Continuar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step4">
-                        <h2>Detalhes Técnicos</h2>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="motorizacao">Motorização:</label>
-                                <input type="text" id="motorizacao" name="motorizacao" placeholder="">
+                        <h2 class="text-center mb-4">Detalhes Técnicos</h2>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label for="motorizacao" class="form-label">Motorização:</label>
+                                <input type="text" id="motorizacao" name="motorizacao" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="tracao">Tração:</label>
-                                <input type="text" id="tracao" name="tracao" placeholder="">
+                            <div class="col-md-6">
+                                <label for="tracao" class="form-label">Tração:</label>
+                                <input type="text" id="tracao" name="tracao" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label>Procedência:</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="procedencia" value="nacional"> Nacional</label>
-                                    <label><input type="radio" name="procedencia" value="importada"> Importada</label>
+                            <div class="col-md-6">
+                                <label class="form-label">Procedência:</label>
+                                <div class="radio-group d-flex gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="procedencia" id="procedenciaNacional" value="nacional">
+                                        <label class="form-check-label" for="procedenciaNacional">Nacional</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="procedencia" id="procedenciaImportada" value="importada">
+                                        <label class="form-check-label" for="procedenciaImportada">Importada</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="consumo_medio">Consumo Médio:</label>
-                                <input type="text" id="consumo_medio" name="consumo_medio" placeholder="">
+                            <div class="col-md-6">
+                                <label for="consumo_medio" class="form-label">Consumo Médio:</label>
+                                <input type="text" id="consumo_medio" name="consumo_medio" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="termo_solar">Termo Solar:</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="termo_solar" value="sim"> Sim</label>
-                                    <label><input type="radio" name="termo_solar" value="nao"> Não</label>
+                            <div class="col-md-6">
+                                <label class="form-label">Termo Solar:</label>
+                                <div class="radio-group d-flex gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="termo_solar" id="termoSolarSim" value="sim">
+                                        <label class="form-check-label" for="termoSolarSim">Sim</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="termo_solar" id="termoSolarNao" value="nao">
+                                        <label class="form-check-label" for="termoSolarNao">Não</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Condição:</label>
-                                <div class="radio-group">
-                                    <label><input type="radio" name="condicao" value="novo"> Novo</label>
-                                    <label><input type="radio" name="condicao" value="usado"> Usado</label>
+                            <div class="col-md-6">
+                                <label class="form-label">Condição:</label>
+                                <div class="radio-group d-flex gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="condicao" id="condicaoNovo" value="novo">
+                                        <label class="form-check-label" for="condicaoNovo">Novo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="condicao" id="condicaoUsado" value="usado">
+                                        <label class="form-check-label" for="condicaoUsado">Usado</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="potencia">Potência:</label>
-                                <div class="power-input-group">
-                                    <input type="number" id="potencia" name="potencia" placeholder="">
-                                    <select id="potencia_unidade" name="potencia_unidade">
-                                        <option value="cv">CV</option>
-                                        <option value="hw">HW</option>
+                            <div class="col-md-6">
+                                <label for="potencia" class="form-label">Potência:</label>
+                                <div class="power-input-group d-flex gap-2">
+                                    <input type="number" id="potencia" name="potencia" class="form-control" placeholder="">
+                                    <select id="potencia_unidade" name="potencia_unidade" class="form-select w-auto">
+                                        <option value="cv">CV</option><option value="hw">HW</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group checkbox-group">
-                                <label>Opcionais (Marque todos que se aplicam):</label>
-                                <label><input type="checkbox" name="opcional" value="ipva"> IPVA pago</label>
-                                <label><input type="checkbox" name="opcional" value="licenciamento"> Licenciamento ok</label>
-                                <label><input type="checkbox" name="opcional" value="revisoes"> Revisões feitas</label>
+                            <div class="col-md-12">
+                                <label class="form-label">Opcionais (Marque todos que se aplicam):</label>
+                                <div class="checkbox-group d-flex flex-wrap gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="opcional" value="ipva" id="opcionalIpva">
+                                        <label class="form-check-label" for="opcionalIpva">IPVA pago</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="opcional" value="licenciamento" id="opcionalLicenciamento">
+                                        <label class="form-check-label" for="opcionalLicenciamento">Licenciamento ok</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="opcional" value="revisoes" id="opcionalRevisoes">
+                                        <label class="form-check-label" for="opcionalRevisoes">Revisões feitas</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step3')">Voltar</button>
+                        
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step3')">Voltar</button>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step5')">Continuar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step5">
-                        <h2>Informações de venda</h2>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="preco">Preço:</label>
-                                <input type="number" id="preco" name="preco" placeholder="">
+                        <h2 class="text-center mb-4">Informações de venda</h2>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label for="preco" class="form-label">Preço:</label>
+                                <input type="number" id="preco" name="preco" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="forma_pagamento">Forma de pagamento aceita:</label>
-                                <input type="text" id="forma_pagamento" name="forma_pagamento" placeholder="">
+                            <div class="col-md-6">
+                                <label for="forma_pagamento" class="form-label">Forma de pagamento aceita:</label>
+                                <input type="text" id="forma_pagamento" name="forma_pagamento" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="cidade_localizacao">Cidade / Estado / Localização aproximada:</label>
-                                <input type="text" id="cidade_localizacao" name="cidade_localizacao" placeholder="">
+                            <div class="col-12">
+                                <label for="cidade_localizacao" class="form-label">Cidade / Estado / Localização aproximada:</label>
+                                <input type="text" id="cidade_localizacao" name="cidade_localizacao" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="descricao_anuncio">Descrição do anúncio:</label>
-                                <textarea id="descricao_anuncio" name="descricao_anuncio" rows="4" placeholder=""></textarea>
+                            <div class="col-12">
+                                <label for="descricao_anuncio" class="form-label">Descrição do anúncio:</label>
+                                <textarea id="descricao_anuncio" name="descricao_anuncio" rows="4" class="form-control" placeholder=""></textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="status_anuncio">Status do anúncio:</label>
-                                <select id="status_anuncio" name="status_anuncio">
-                                    <option value="rascunho">Ativo</option>
-                                    <option value="ativo">Inativo</option>
+                            <div class="col-12">
+                                <label for="status_anuncio" class="form-label">Status do anúncio:</label>
+                                <select id="status_anuncio" name="status_anuncio" class="form-select">
+                                    <option value="rascunho">Ativo</option><option value="ativo">Inativo</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step4')">Voltar</button>
+                        
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step4')">Voltar</button>
                             <button type="button" class="btn btn-primary" onclick="nextStep('step6')">Continuar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step6">
-                        <h2>Extras</h2>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="tags">Tags:</label>
-                                <input type="text" id="tags" name="tags" placeholder="">
+                        <h2 class="text-center mb-4">Extras</h2>
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label for="tags" class="form-label">Tags:</label>
+                                <input type="text" id="tags" name="tags" class="form-control" placeholder="">
                             </div>
-                            <div class="form-group">
-                                <label for="consumo_medio_extra">Consumo médio:</label>
-                                <input type="text" id="consumo_medio_extra" name="consumo_medio_extra" placeholder="">
+                            <div class="col-md-6">
+                                <label for="consumo_medio_extra" class="form-label">Consumo médio:</label>
+                                <input type="text" id="consumo_medio_extra" name="consumo_medio_extra" class="form-control" placeholder="">
                             </div>
                         </div>
                         
-                        <div class="button-group-extra">
-                            <button type="button" class="btn btn-secondary-extra" onclick="previewAd()">Pré-visualização do anúncio</button>
-                            <button type="button" class="btn btn-secondary-extra" onclick="goToStepPhotos()">Adicionar mais fotos</button>
+                        <div class="button-group-extra d-flex flex-column gap-3 py-4 border-top border-bottom mb-4">
+                            <button type="button" class="btn btn-outline-secondary" onclick="previewAd()">Pré-visualização do anúncio</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="goToStepPhotos()">Adicionar mais fotos</button>
                         </div>
 
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step5')">Voltar</button>
-                            <button type="submit" class="btn btn-primary">Publicar</button>
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step5')">Voltar</button>
+                            <button type="submit" class="btn btn-success">Publicar</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step6-fotos">
-                        <h2>Adicionar mais fotos</h2>
-                        <div class="photo-upload-box" onclick="document.getElementById('photo-upload-extra').click()">
-                            <p>Adicione fotos adicionais nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
-                            <div class="drag-drop-area">Arraste as fotos para cá ou</div>
-                            <button type="button" class="btn-add-photos">(+) Clique para adicionar mais fotos</button>
-                            <input type="file" id="photo-upload-extra" name="photos_extra[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;">
+                        <h2 class="text-center mb-4">Adicionar mais fotos</h2>
+                        <div class="photo-upload-box border-3 border-dashed border-secondary-subtle p-5 rounded-4 bg-light text-center mb-3" onclick="document.getElementById('photo-upload-extra').click()">
+                            <p class="text-muted mb-4">Adicione fotos adicionais nos formatos JPG, GIF, PNG, HEIC ou WEBP.</p>
+                            <div class="drag-drop-area h5 text-dark fw-bold mb-3">Arraste as fotos para cá ou</div>
+                            <button type="button" class="btn-add-photos btn btn-outline-primary">
+                                (+) Clique para adicionar mais fotos
+                            </button>
+                            <input type="file" id="photo-upload-extra" name="photos_extra[]" accept=".jpg, .jpeg, .gif, .png, .heic, .webp" multiple style="display: none;" onchange="displayFileNames('photo-upload-extra', 'uploaded-files-list-step6')">
                         </div>
 
-                        <div class="button-group">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep('step6')">Voltar aos Extras</button>
+                        <div id="uploaded-files-list-step6" class="mb-4"></div>
+
+                        <div class="button-group d-flex justify-content-between pt-4 border-top">
+                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep('step6')">Voltar aos Extras</button>
                             <button type="button" class="btn btn-primary" onclick="previewAd()">Pré-visualização do Anúncio</button>
                         </div>
                     </div>
 
                     <div class="form-section hidden-step" id="step7">
-                        <h2>Pré-visualização do Anúncio</h2>
-                        <div id="preview-content">
-                            
+                        <h2 class="text-center mb-4">Pré-visualização do Anúncio</h2>
+                        <div class="row g-4 mb-4" id="preview-content">
                         </div>
-                        <div class="button-group button-group-center">
+                        <div class="button-group d-flex justify-content-center pt-4 border-top">
                             <button type="button" class="btn btn-secondary" onclick="prevStep('step6')">Voltar ao Formulário</button>
                         </div>
                     </div>
@@ -333,12 +306,14 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <script>
         const carBrands = [
             'Chevrolet', 'Volkswagen', 'Fiat', 'Ford', 'Renault', 'Toyota', 'Hyundai', 'Jeep', 'Honda', 'Nissan',
             'Mercedes-Benz', 'BMW', 'Audi', 'Volvo', 'Land Rover', 'Citroën', 'Peugeot', 'Kia', 'Mitsubishi', 'Subaru',
             'Lexus', 'Porsche', 'Ferrari', 'Lamborghini', 'Maserati', 'Rolls-Royce', 'Jaguar', 'Mini', 'Smart', 'Chery',
-            'JAC Motors', 'Effa', 'Suzuki', 'Dodge', 'Chrysler', 'RAM', 'Lifan', 'Shineray', 'BYD', 'GWM',
+            'JAC Motors', 'Effa', 'Suzuki', 'Dodge', 'Chrysler', 'Caminhonete', 'RAM', 'Lifan', 'Shineray', 'BYD', 'GWM',
             'Tesla', 'McLaren', 'Bugatti', 'Acura', 'Infiniti', 'Geely', 'Troller', 'Iveco', 'Sinotruk', 'Outra'
         ];
 
@@ -413,6 +388,86 @@
             showStep('step6-fotos');
         }
 
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        function removeFile(element) {
+            const listItem = element.closest('li');
+            const listContainer = listItem.closest('div[id^="uploaded-files-list"]');
+            const fileName = listItem.querySelector('.text-truncate').textContent;
+            
+            let inputId;
+            if (listContainer.id.includes('step2')) {
+                inputId = 'photo-upload';
+            } else if (listContainer.id.includes('step6')) {
+                inputId = 'photo-upload-extra';
+            }
+
+            if (inputId) {
+                const input = document.getElementById(inputId);
+                const dataTransfer = new DataTransfer();
+                
+                Array.from(input.files)
+                    .filter(file => file.name !== fileName)
+                    .forEach(file => dataTransfer.items.add(file));
+
+                input.files = dataTransfer.files;
+                
+                listItem.remove();
+                
+                if (listContainer.querySelector('ul') && listContainer.querySelector('ul').children.length === 0) {
+                    listContainer.innerHTML = '';
+                }
+            }
+        }
+
+        function displayFileNames(inputId, listId) {
+            const input = document.getElementById(inputId);
+            const listContainer = document.getElementById(listId);
+            listContainer.innerHTML = '';
+
+            if (input.files.length > 0) {
+                const ul = document.createElement('ul');
+                ul.classList.add('list-group', 'list-group-flush', 'border', 'rounded');
+
+                Array.from(input.files).forEach(file => {
+                    const li = document.createElement('li');
+                    li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'bg-light', 'py-2');
+                    
+                    const fileNameContainer = document.createElement('div');
+                    fileNameContainer.classList.add('d-flex', 'align-items-center');
+
+                    const fileNameSpan = document.createElement('span');
+                    fileNameSpan.classList.add('text-truncate');
+                    fileNameSpan.textContent = file.name;
+
+                    const fileSizeSpan = document.createElement('small');
+                    fileSizeSpan.classList.add('text-muted', 'ms-3');
+                    fileSizeSpan.textContent = `(${formatFileSize(file.size)})`;
+
+                    fileNameContainer.appendChild(fileNameSpan);
+                    fileNameContainer.appendChild(fileSizeSpan);
+                    li.appendChild(fileNameContainer);
+                    
+                    const removeButton = document.createElement('button');
+                    removeButton.type = 'button';
+                    removeButton.classList.add('btn', 'btn-sm', 'btn-danger', 'ms-2');
+                    removeButton.innerHTML = '<i class="fas fa-times"></i>'; 
+                    removeButton.onclick = function() { removeFile(this); };
+
+                    li.appendChild(removeButton);
+                    ul.appendChild(li);
+                });
+
+                listContainer.appendChild(ul);
+            }
+        }
+
         function getFormData() {
             const form = document.getElementById('vehicle-form');
             const formData = {};
@@ -442,7 +497,7 @@
 
             const checkboxes = form.querySelectorAll('input[name="opcional"]:checked');
             formData['opcionais'] = Array.from(checkboxes).map(cb => {
-                const labelElement = cb.closest('label');
+                const labelElement = cb.closest('.form-check').querySelector('.form-check-label');
                 return labelElement ? labelElement.textContent.trim() : cb.value;
             });
             
@@ -457,51 +512,83 @@
             const condicaoText = data.condicao === 'novo' ? 'Novo' : (data.condicao === 'usado' ? 'Usado' : '-');
             const procedenciaText = data.procedencia === 'nacional' ? 'Nacional' : (data.procedencia === 'importada' ? 'Importada' : '-');
             const termoSolarText = data.termo_solar === 'sim' ? 'Sim' : (data.termo_solar === 'nao' ? 'Não' : '-');
+            const precoFormatado = data.preco ? parseFloat(data.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2, style: 'currency', currency: 'BRL'}) : '-';
+            const kmFormatada = data.quilometragem ? parseInt(data.quilometragem).toLocaleString('pt-BR') + ' km' : '-';
+            const potenciaFormatada = data.potencia ? data.potencia + ' ' + (data.potencia_unidade.toUpperCase() || '') : '-';
+
 
             return `
-                <div class="preview-info-section">
-                    <h3>Gerais</h3>
-                    <p><strong>Tipo de Veículo:</strong> ${data.tipo_veiculo || '-'}</p>
-                    <p><strong>Marca:</strong> ${data.tipo_automovel || '-'}</p>
-                    <p><strong>Preço:</strong> R$ ${data.preco ? parseFloat(data.preco).toLocaleString('pt-BR', {minimumFractionDigits: 2}) : '-'}</p>
-                    <p><strong>Localização:</strong> ${data.cidade_localizacao || '-'}</p>
-                    <p><strong>Status:</strong> ${statusText}</p>
+                <div class="col-md-6">
+                    <div class="card h-100 border-start border-4 border-warning bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Gerais</h5>
+                            <p class="card-text mb-1"><strong>Tipo de Veículo:</strong> ${data.tipo_veiculo || '-'}</p>
+                            <p class="card-text mb-1"><strong>Marca:</strong> ${data.tipo_automovel || '-'}</p>
+                            <p class="card-text mb-1"><strong>Preço:</strong> ${precoFormatado}</p>
+                            <p class="card-text mb-1"><strong>Localização:</strong> ${data.cidade_localizacao || '-'}</p>
+                            <p class="card-text mb-1"><strong>Status:</strong> ${statusText}</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="preview-info-section">
-                    <h3>Veículo</h3>
-                    <p><strong>Modelo:</strong> ${data.modelo || '-'}</p>
-                    <p><strong>Ano Mod/Fab:</strong> ${data.ano_modelo || '-'} / ${data.ano_fabricacao || '-'}</p>
-                    <p><strong>Quilometragem:</strong> ${data.quilometragem ? data.quilometragem.toLocaleString('pt-BR') + ' km' : '-'}</p>
-                    <p><strong>Placa:</strong> ${data.placa || '-'}</p>
-                    <p><strong>Portas:</strong> ${data.portas || '-'}</p>
-                    <p><strong>Categoria:</strong> ${data.categoria || '-'}</p>
+                <div class="col-md-6">
+                    <div class="card h-100 border-start border-4 border-warning bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Veículo</h5>
+                            <p class="card-text mb-1"><strong>Modelo:</strong> ${data.modelo || '-'}</p>
+                            <p class="card-text mb-1"><strong>Ano Mod/Fab:</strong> ${data.ano_modelo || '-'} / ${data.ano_fabricacao || '-'}</p>
+                            <p class="card-text mb-1"><strong>Quilometragem:</strong> ${kmFormatada}</p>
+                            <p class="card-text mb-1"><strong>Placa:</strong> ${data.placa || '-'}</p>
+                            <p class="card-text mb-1"><strong>Portas:</strong> ${data.portas || '-'}</p>
+                            <p class="card-text mb-1"><strong>Categoria:</strong> ${data.categoria || '-'}</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="preview-info-section">
-                    <h3>Técnicos</h3>
-                    <p><strong>Câmbio:</strong> ${data.cambio || '-'}</p>
-                    <p><strong>Combustível:</strong> ${data.combustivel || '-'}</p>
-                    <p><strong>Potência:</strong> ${data.potencia ? data.potencia + ' ' + (data.potencia_unidade.toUpperCase() || '') : '-'}</p>
-                    <p><strong>Motorização:</strong> ${data.motorizacao || '-'}</p>
-                    <p><strong>Tração:</strong> ${data.tracao || '-'}</p>
-                    <p><strong>Consumo Médio:</strong> ${data.consumo_medio || data.consumo_medio_extra || '-'}</p>
-                    <p><strong>Condição:</strong> ${condicaoText}</p>
-                    <p><strong>Procedência:</strong> ${procedenciaText}</p>
-                    <p><strong>Termo Solar:</strong> ${termoSolarText}</p>
+                <div class="col-md-12">
+                    <div class="card border-start border-4 border-warning bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Técnicos</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="card-text mb-1"><strong>Câmbio:</strong> ${data.cambio || '-'}</p>
+                                    <p class="card-text mb-1"><strong>Combustível:</strong> ${data.combustivel || '-'}</p>
+                                    <p class="card-text mb-1"><strong>Potência:</strong> ${potenciaFormatada}</p>
+                                    <p class="card-text mb-1"><strong>Motorização:</strong> ${data.motorizacao || '-'}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text mb-1"><strong>Tração:</strong> ${data.tracao || '-'}</p>
+                                    <p class="card-text mb-1"><strong>Consumo Médio:</strong> ${data.consumo_medio || data.consumo_medio_extra || '-'}</p>
+                                    <p class="card-text mb-1"><strong>Condição:</strong> ${condicaoText}</p>
+                                    <p class="card-text mb-1"><strong>Procedência:</strong> ${procedenciaText}</p>
+                                    <p class="card-text mb-1"><strong>Termo Solar:</strong> ${termoSolarText}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="preview-info-section full-width">
-                    <h3>Opcionais</h3>
-                    <p>${data.opcionais && data.opcionais.length > 0 ? data.opcionais.join(' | ') : 'Nenhum opcional selecionado'}</p>
+                <div class="col-md-12">
+                    <div class="card border-start border-4 border-warning bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Opcionais</h5>
+                            <p class="card-text">${data.opcionais && data.opcionais.length > 0 ? data.opcionais.join(' | ') : 'Nenhum opcional selecionado'}</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="preview-info-section full-width">
-                    <h3>Descrição e Venda</h3>
-                    <p><strong>Descrição:</strong></p>
-                    <p class="description-box">${data.descricao_anuncio || 'Nenhuma descrição fornecida.'}</p>
-                    <p><strong>Forma de Pagamento:</strong> ${data.forma_pagamento || '-'}</p>
-                    <p><strong>Tags:</strong> ${data.tags || '-'}</p>
+                <div class="col-md-12">
+                    <div class="card border-start border-4 border-warning bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Descrição e Venda</h5>
+                            <p class="card-text"><strong>Descrição:</strong></p>
+                            <div class="description-box p-3 bg-white border rounded">
+                                ${data.descricao_anuncio || 'Nenhuma descrição fornecida.'}
+                            </div>
+                            <p class="card-text mt-3 mb-1"><strong>Forma de Pagamento:</strong> ${data.forma_pagamento || '-'}</p>
+                            <p class="card-text mb-1"><strong>Tags:</strong> ${data.tags || '-'}</p>
+                        </div>
+                    </div>
                 </div>
             `;
         }
