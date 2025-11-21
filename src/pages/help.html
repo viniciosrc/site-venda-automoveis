@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocità - Ajuda</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style_help.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            
+            <a href="#" class="logo-container">
+                <img class="logo-home-velocita" src="../assets/image/logovelocita-home.png" alt="logoHome velocita">
+            </a>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-link">Comprar</a>
+                <a href="cadastro_veiculos.html" class="nav-link">Vender</a>
+                <a href="tabela_Fipe.html" class="nav-link">Tabela Fipe</a>
+                <a href="#" class="nav-link">Ajuda</a>
+            </nav>
+
+            <div class="access-icons">
+                <a href="login_card.html" class="access-link">
+                    <i class="fas fa-user-circle access-icon"></i>
+                    <a href="../pages/cadastro.html" class="access-text">Entrar & Cadastrar</a>
+                </a>
+                
+                <a href="#" class="favorite-link">
+                    <i class="fas fa-heart favorite-icon"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Ajuda</h1>
+        <hr>
+
+        <div class="help-options-container">
+            <button class="option-card" onclick="selectOption(this)">
+                <div class="info-badge">i</div>
+                <div class="velocita-pill">
+                    <span class="material-icons-outlined">account_circle</span> Velocità
+                </div>
+                <div class="card-title">Tenho dúvidas sobre a conta.</div>
+            </button>
+            <button class="option-card" onclick="selectOption(this)">
+                 <div class="info-badge">i</div>
+                <div class="product-icons">
+                    <div class="icon-circle-pink">+</div>
+                    <div class="icon-circle-pink">?</div>
+                </div>
+                <div class="card-title">Tenho dúvidas sobre os produtos.</div>
+            </button>
+            <button class="option-card" onclick="selectOption(this)">
+                 <div class="info-badge">i</div>
+                 <div class="velocita-pill">
+                    <span class="material-icons-outlined">account_circle</span> Velocità
+                </div>
+                <div class="card-title">Outras dúvidas.</div>
+            </button>
+        </div>
+
+        <section id="specification-area">
+            <div class="form-container">
+                <textarea placeholder="Escreva aqui..."></textarea>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Ajuda</a>
+            <a href="#">Trabalhe Conosco</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Política de Privacidade</a>
+        </div>
+        <div class="copyright">
+            © Velocità Vendas de Automóveis - R. Álvares Maciel, 628 - Santa Efigênia, Belo Horizonte - MG, 30150-250
+        </div>
+        
+        <a href="home.html" class="logo-link-footer">
+             <img src="../assets/image/logo-velocita-preto.png" alt="Velocità Home" class="logo-img-footer">
+        </a>
+    </footer>
+
+    <script>
+        function selectOption(clickedCard) {
+            const allCards = document.querySelectorAll('.option-card');
+            allCards.forEach(card => { card.classList.remove('selected'); });
+            clickedCard.classList.add('selected');
+            const specArea = document.getElementById('specification-area');
+            specArea.classList.add('show');
+            specArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+</html>
