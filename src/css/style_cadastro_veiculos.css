@@ -7,7 +7,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #ffffff;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -15,17 +15,15 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 input[type="number"] {
     -moz-appearance: textfield;
 }
 
 .header-background {
     width: 100%;
-    background-color: #f0f2f5;
+    background-color: #ffffff;
     padding: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +32,7 @@ input[type="number"] {
 .main-background {
     width: 100%;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -49,7 +47,7 @@ input[type="number"] {
 }
 
 .header {
-    height: 80px;
+    height: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +56,7 @@ input[type="number"] {
 
 .logo-img {
     width: 350px;
-    margin-top: 30px;
+    margin-top: 75px; 
 }
 
 .form-card {
@@ -66,7 +64,7 @@ input[type="number"] {
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    margin-top: -5px;
+    margin-top: 25px; 
 }
 
 .form-section.hidden-step {
@@ -96,34 +94,6 @@ input[type="number"] {
     font-weight: 600;
     color: #333;
     font-size: 1em;
-}
-
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 14px 15px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1em;
-    color: #333;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #ff0080;
-    box-shadow: 0 0 0 3px rgba(255, 0, 128, 0.1);
-    outline: none;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
 }
 
 .radio-group label,
@@ -164,7 +134,7 @@ input[type="number"] {
 }
 
 .type-box.active-category {
-    border-color: #ff7043;
+    border-color: #ff7043 !important;
     transform: scale(1.05);
     z-index: 10;
 }
@@ -213,7 +183,6 @@ input[type="number"] {
     text-align: center;
     border-radius: 16px;
     margin-top: 20px;
-    margin-bottom: 30px;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
 }
@@ -259,15 +228,6 @@ input[type="number"] {
     gap: 10px;
 }
 
-.power-input-group input[type="number"] {
-    flex-grow: 1;
-}
-
-.power-input-group select {
-    width: 100px;
-    flex-shrink: 0;
-}
-
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -287,43 +247,14 @@ input[type="number"] {
     justify-content: center;
 }
 
-.btn {
-    padding: 12px 35px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    text-transform: none;
-    font-weight: bold;
-    transition: background-color 0.2s, opacity 0.2s;
-    min-width: 130px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.btn-secondary {
-    background-color: #e0e0e0;
-    color: #333;
-}
-
-.btn-secondary:hover {
-    background-color: #ccc;
-}
-
-.btn-secondary.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background-color: #f0f0f0;
-}
-
 .btn-primary {
-    background-color: #ff7043;
-    color: white;
+    background-color: #ff7043 !important;
+    border-color: #ff7043 !important;
 }
 
 .btn-primary:hover {
-    background-color: #e55b30;
+    background-color: #e55b30 !important;
+    border-color: #e55b30 !important;
 }
 
 .button-group-extra {
@@ -334,63 +265,6 @@ input[type="number"] {
     padding: 20px 0;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
-}
-
-.btn-secondary-extra {
-    background-color: white;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-
-.btn-secondary-extra:hover {
-    background-color: #f0f0f0;
-    border-color: #a0a0a0;
-}
-
-#preview-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px 30px;
-    padding: 20px 0;
-}
-
-.preview-info-section {
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border-left: 4px solid #ff7043;
-}
-
-.preview-info-section h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #333;
-    font-size: 1.2em;
-    font-weight: bold;
-    border-bottom: 1px dashed #ddd;
-    padding-bottom: 5px;
-}
-
-.preview-info-section p {
-    margin: 8px 0;
-    font-size: 0.95em;
-    line-height: 1.4;
-}
-
-.preview-info-section strong {
-    font-weight: 600;
-    color: #555;
-    margin-right: 5px;
-}
-
-.preview-info-section.full-width {
-    grid-column: 1 / -1;
 }
 
 .description-box {
@@ -405,21 +279,30 @@ input[type="number"] {
 @media (max-width: 768px) {
     .header-background {
         padding: 10px 0;
-        margin-bottom: 10px;
     }
-    .main-container {
-        padding: 0 10px;
+    .header {
+        height: 60px; 
     }
     .logo-img {
         max-width: 150px;
+        margin-top: 0px; 
         height: 40px;
     }
+
+    .main-container {
+        padding: 0 10px;
+    }
+    
     .form-card {
         padding: 20px;
+        margin-top: 15px; 
     }
-    .form-grid {
+
+    .form-grid,
+    .row.g-4 {
         grid-template-columns: 1fr;
     }
+    
     .vehicle-type-selection {
         flex-direction: column;
         align-items: center;
@@ -430,16 +313,20 @@ input[type="number"] {
         position: relative;
         width: 100%;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         padding: 10px 15px;
         transform: none;
         height: auto;
     }
-
+    .type-box.active-category {
+        transform: none; 
+    }
     .image-box {
         margin-bottom: 0;
         margin-right: 15px;
+        width: 40px; 
+        height: 40px;
     }
     .type-text {
         flex-grow: 1;
@@ -456,12 +343,10 @@ input[type="number"] {
         padding: 12px 15px;
         min-width: 100%;
     }
+    
     .power-input-group {
         flex-direction: column;
         gap: 8px;
-    }
-    .power-input-group select {
-        width: 100%;
     }
     
     #preview-content {
