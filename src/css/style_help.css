@@ -1,0 +1,387 @@
+/* =======================================================
+   1. RESET E VARIÁVEIS GLOBAIS (Tema Laranja Velocità)
+   ======================================================= */
+:root {
+    /* Cores Principais */
+    --primary-orange: #ff6633; /* Laranja vibrante (Baseado na imagem) */
+    --hover-orange: #e65100;   /* Laranja mais escuro para hover */
+    --light-orange-bg: #ffe0d6; /* Fundo bem clarinho para pílulas e seleções */
+    
+    /* Cores Neutras */
+    --bg-card: #f5f5f5;
+    --text-dark: #222;
+    --text-gray: #555;
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Configurações */
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* =======================================================
+   2. CABEÇALHO (HEADER)
+   ======================================================= */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; 
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo-home-velocita {
+    /* AJUSTE DE TAMANHO DA LOGO */
+    padding-top: 20px;
+    height: 320px; 
+    width: auto; 
+    margin-right: 0.5rem;
+}
+
+/* Menu Central */
+.main-nav {
+    display: none; /* Mobile first */
+    gap: 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.nav-link:hover {
+    color: var(--primary-orange);
+}
+
+/* Área de Login */
+.access-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.access-link, .favorite-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    transition: color var(--transition-speed);
+}
+
+.access-link:hover, .favorite-link:hover {
+    color: var(--primary-orange);
+}
+
+.access-text {
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+.access-icon, .favorite-icon { font-size: 1.5rem; }
+
+
+/* =======================================================
+   3. CONTEÚDO PRINCIPAL (MAIN)
+   ======================================================= */
+main {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin-bottom: 40px;
+}
+
+/* =======================================================
+   4. CARTÕES DE OPÇÃO
+   ======================================================= */
+.help-options-container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.option-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 30px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    border: none;
+}
+
+.option-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    /* Importante para o tooltip funcionar */
+    z-index: 100; 
+}
+
+.option-card.selected {
+    /* Fundo levemente alaranjado quando selecionado */
+    background-color: var(--light-orange-bg); 
+    border: 1px solid var(--primary-orange);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+/* Elementos Internos do Cartão (Círculos e Pílulas) */
+.velocita-pill {
+    background-color: var(--light-orange-bg);
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+.velocita-pill span { margin-right: 8px; font-size: 1.2rem; }
+
+.product-icons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+.icon-circle-orange {
+    background-color: var(--light-orange-bg);
+    color: var(--primary-orange);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Tooltip (Ícone i) */
+.info-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--primary-orange);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: help;
+    z-index: 10;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    font-weight: normal;
+    line-height: 1.4;
+    position: absolute;
+    bottom: 135%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    transition-delay: 0s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    pointer-events: none;
+}
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+.info-badge:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+/* =======================================================
+   5. ÁREA DO FORMULÁRIO (EXPANSÍVEL)
+   ======================================================= */
+#specification-area {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    border-top: 0px solid transparent;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#specification-area.show {
+    max-height: 800px;
+    opacity: 1;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ccc;
+}
+
+.form-container {
+    background-color: #e0e0e0;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tags / Botões de Filtro */
+.common-options-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tag-option {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    transition: all 0.2s ease;
+}
+
+.tag-option:hover {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+.tag-option.active {
+    background-color: var(--primary-orange);
+    color: white;
+    border-color: var(--primary-orange);
+}
+
+.support-instruction {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    border: none;
+    background-color: #f9f9f9;
+    resize: none;
+    font-size: 1.1rem;
+    color: #555;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background-color: var(--hover-orange);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* =======================================================
+   6. RESPONSIVIDADE
+   ======================================================= */
+
+/* Mobile */
+@media (max-width: 768px) {
+    .help-options-container { flex-direction: column; }
+    header { flex-direction: column; gap: 15px; }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .main-nav { display: flex; }
+}
