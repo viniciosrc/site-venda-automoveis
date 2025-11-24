@@ -230,18 +230,25 @@ hr {
     color: var(--text-dark);
 }
 
-/* --- Área do Formulário (Inicialmente Oculta) --- */
+/* --- Área do Formulário (Animação Suave) --- */
 #specification-area {
-    display: none;
-    margin-top: 40px;
-    border-top: 1px solid #ccc;
-    padding-top: 40px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    border-top: 0px solid transparent;
+    
+    /* Vamos usar 0.5s para ficar ágil */
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
 }
 
 #specification-area.show {
-    display: block;
+    max-height: 600px; /* Garante altura suficiente */
+    opacity: 1;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #ccc;
 }
-
 .form-container {
     background-color: #e0e0e0;
     padding: 30px;
@@ -311,4 +318,81 @@ footer {
     .access-text {
         display: inline;
     }
+}
+/* --- Novos Estilos do Formulário --- */
+
+/* Rótulo "Assuntos frequentes" */
+.common-options-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+/* Container das tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap; /* Quebra linha se não couber */
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+/* Botões/Tags de Opção */
+.tag-option {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.tag-option:hover {
+    border-color: var(--primary-pink);
+    color: var(--primary-pink);
+}
+
+/* Estado Ativo (Selecionado) */
+.tag-option.active {
+    background-color: var(--primary-pink);
+    color: white;
+    border-color: var(--primary-pink);
+}
+
+/* Frase de Instrução */
+.support-instruction {
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Ajuste no Textarea (já existente, mas garantindo margem inferior) */
+textarea {
+    margin-bottom: 20px;
+    background-color: #f9f9f9; /* Um fundo levemente mais claro para destacar */
+    padding: 15px; /* Mais espaço interno */
+    border-radius: 8px; /* Cantos arredondados */
+}
+
+/* Botão Enviar */
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-pink);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+    background-color: #d81b60; /* Um rosa um pouco mais escuro */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
