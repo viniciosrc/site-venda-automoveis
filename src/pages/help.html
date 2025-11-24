@@ -18,7 +18,6 @@
             </a>
 
             <nav class="main-nav">
-                <a href="home.html" class="nav-link">Comprar</a>
                 <a href="cadastro_veiculos.html" class="nav-link">Vender</a>
                 <a href="tabela_Fipe.html" class="nav-link">Tabela Fipe</a>
                 <a href="#" class="nav-link">Ajuda</a>
@@ -27,12 +26,14 @@
             <div class="access-icons">
                 <div class="access-link-wrapper">
                     <a href="login_card.html" class="access-link">
-                        <i class="fas fa-user-circle access-icon"></i> <span class="access-text">Entrar & Cadastrar</span>
+                        <i class="fas fa-user-circle access-icon"></i> 
+                        <span class="access-text">Entrar & Cadastrar</span>
                     </a>
                 </div>
                 
                 <a href="#" class="favorite-link">
-                    <i class="fas fa-heart favorite-icon"></i> </a>
+                    <i class="fas fa-heart favorite-icon"></i> 
+                </a>
             </div>
         </div>
     </header>
@@ -44,7 +45,10 @@
         <div class="help-options-container">
             
             <button class="option-card" onclick="selectOption(this, 'conta')">
-                <div class="info-badge">i</div>
+                <div class="info-badge">
+                    i
+                    <span class="tooltip-text">Problemas com login, senha, cadastro ou exclusão de dados.</span>
+                </div>
                 <div class="velocita-pill">
                     <span class="material-icons-outlined">account_circle</span> Velocità
                 </div>
@@ -52,16 +56,22 @@
             </button>
 
             <button class="option-card" onclick="selectOption(this, 'produtos')">
-                 <div class="info-badge">i</div>
+                 <div class="info-badge">
+                    i
+                    <span class="tooltip-text">Dúvidas sobre compras, vendas, taxas e documentação veicular.</span>
+                 </div>
                 <div class="product-icons">
-                    <div class="icon-circle-pink">+</div>
-                    <div class="icon-circle-pink">?</div>
+                    <div class="icon-circle-orange">+</div>
+                    <div class="icon-circle-orange">?</div>
                 </div>
                 <div class="card-title">Tenho dúvidas sobre os produtos.</div>
             </button>
 
             <button class="option-card" onclick="selectOption(this, 'outras')">
-                 <div class="info-badge">i</div>
+                 <div class="info-badge">
+                    i
+                    <span class="tooltip-text">Para assuntos gerais ou contato direto com o suporte.</span>
+                 </div>
                  <div class="velocita-pill">
                     <span class="material-icons-outlined">account_circle</span> Velocità
                 </div>
@@ -82,93 +92,48 @@
 
                 <textarea placeholder="Escreva aqui os detalhes..."></textarea>
 
-                <button class="submit-btn">ENVIAR</button>
+                <button class="submit-btn" onclick="enviarSolicitacao()">ENVIAR</button>
             </div>
         </section>
 
     </main>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Ajuda</a>
-            <a href="#">Trabalhe Conosco</a>
-            <a href="#">Termos de Uso</a>
-            <a href="#">Política de Privacidade</a>
-        </div>
-        <div class="copyright">
-            © Velocità Vendas de Automóveis - R. Álvares Maciel, 628 - Santa Efigênia, Belo Horizonte - MG, 30150-250
-        </div>
-        
-        <a href="home.html" class="logo-link-footer">
-             <img src="../assets/image/velocita-logo-login.png" alt="Velocità Home" class="logo-img-footer">
-        </a>
-    </footer>
+
 
     <script>
-        // Banco de dados das opções
         const opcoesPorCategoria = {
-            'conta': [
-                "Esqueci minha senha",
-                "Alterar e-mail de cadastro",
-                "Excluir minha conta",
-                "Histórico de atividades",
-                "Problema no login"
-            ],
-            'produtos': [
-                "Acompanhar minha venda",
-                "Como comprar um veículo",
-                "Agendar visita técnica",
-                "Taxas e financiamento",
-                "Documentação necessária"
-            ],
+            'conta': ["Esqueci minha senha", "Alterar e-mail", "Excluir minha conta", "Histórico de atividades", "Problema no login"],
+            'produtos': ["Acompanhar minha venda", "Como comprar", "Agendar visita", "Taxas e financiamento", "Documentação"],
             'outras': [] 
         };
 
-        // Variável para impedir cliques repetidos durante a animação
         let isAnimating = false;
 
         function selectOption(clickedCard, categoria) {
-            // Se já estiver animando ou se clicar no cartão que já está selecionado, não faz nada
             if (isAnimating || clickedCard.classList.contains('selected')) return;
 
             const specArea = document.getElementById('specification-area');
             const isAlreadyOpen = specArea.classList.contains('show');
 
-            // --- CENÁRIO 1: TROCA DE OPÇÃO (JÁ ESTÁ ABERTO) ---
             if (isAlreadyOpen) {
-                isAnimating = true; // Bloqueia cliques
-
-                // 1. Fecha a caixa
+                isAnimating = true; 
                 specArea.classList.remove('show');
-
-                // 2. Espera a animação de fechar terminar (500ms = 0.5s do CSS)
                 setTimeout(() => {
-                    // Troca o visual dos botões e o conteúdo das tags
                     atualizarVisualCard(clickedCard);
                     atualizarTags(categoria);
-
-                    // 3. Abre a caixa de novo
                     specArea.classList.add('show');
-                    
-                    isAnimating = false; // Libera cliques
-                }, 500); // Tempo deve ser igual ou levemente maior que o do CSS transition
-            } 
-            
-            // --- CENÁRIO 2: PRIMEIRA ABERTURA (ESTAVA FECHADO) ---
-            else {
+                    isAnimating = false; 
+                }, 500); 
+            } else {
                 atualizarVisualCard(clickedCard);
                 atualizarTags(categoria);
-                
                 specArea.classList.add('show');
-                
-                // Rolagem suave
                 setTimeout(() => {
                     specArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
             }
         }
 
-        // Função auxiliar para trocar a cor do cartão selecionado
         function atualizarVisualCard(cardParaSelecionar) {
             const allCards = document.querySelectorAll('.option-card');
             allCards.forEach(card => card.classList.remove('selected'));
@@ -178,12 +143,7 @@
         function atualizarTags(categoria) {
             const container = document.getElementById('tags-container');
             const label = document.getElementById('tags-label');
-            const textarea = document.querySelector('textarea');
-            
-            // Limpa conteúdo
             container.innerHTML = '';
-            // Limpa o textarea também para não misturar assuntos (opcional)
-            textarea.value = ''; 
 
             const novasTags = opcoesPorCategoria[categoria];
 
@@ -193,7 +153,6 @@
             }
 
             label.style.display = 'block';
-            
             novasTags.forEach(texto => {
                 const btn = document.createElement('button');
                 btn.className = 'tag-option';
@@ -205,15 +164,20 @@
 
         function toggleTag(tagElement) {
             tagElement.classList.toggle('active');
-            
+        }
+
+        function enviarSolicitacao() {
             const textarea = document.querySelector('textarea');
-            if (tagElement.classList.contains('active')) {
-                if(textarea.value === "") {
-                    textarea.value = "Assunto: " + tagElement.innerText + "\n\n";
-                }
-            }
+            // Simulação de envio
+            alert("Sua solicitação foi enviada com sucesso! Em breve entraremos em contato.");
+
+            // Reset
+            textarea.value = '';
+            document.querySelectorAll('.tag-option.active').forEach(tag => tag.classList.remove('active'));
+            document.getElementById('specification-area').classList.remove('show');
+            document.querySelectorAll('.option-card.selected').forEach(card => card.classList.remove('selected'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
-    
 </body>
 </html>
