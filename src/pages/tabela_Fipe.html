@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/style_tabelaFipe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <link rel="stylesheet" href="../css/style_header.css">
     <script>
         tailwind.config = {
             theme: {
@@ -24,33 +24,32 @@
 
 </head>
 <body class="main-header">
-    <header class="main-header">
-        <div class="header-content">
-            
-            <a href="home.html" class="logo-container">
-                <img class="logo-home-velocita" src="../assets/image/logovelocita-home.png" alt="logoHome velocita">
+    <header class="header">
+    <div class="header-container">
+        
+        <a href="home.html" class="logo-link">
+            <img class="logo-img" src="../assets/image/logovelocita-home.png" alt="logoHome velocita">
+        </a>
+
+        <nav class="nav-menu">
+            <a href="home.html" class="nav-link">Menu</a>
+            <a href="cadastro_veiculos.html" class="nav-link">Vender</a>
+            <a href="tabela_Fipe.html" class="nav-link">Tabela Fipe</a>
+            <a href="ajuda.html" class="nav-link">Ajuda</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="login_card.html" class="btn-entrar">
+                <i class="fas fa-user-circle"></i> 
+                Entrar
             </a>
-
-            <nav class="main-nav">
-                <a href="#" class="nav-link">Comprar</a>
-                <a href="cadastro_veiculos.html" class="nav-link">Vender</a>
-                <a href="#" class="nav-link">Tabela Fipe</a>
-                <a href="#" class="nav-link">Ajuda</a>
-            </nav>
-
-            <div class="access-icons">
-                <a href="login_card.html" class="access-link">
-                    <i class="fas fa-user-circle access-icon"></i>
-                </a>
-                <a href="../pages/cadastro.html" class="access-text">Entrar & Cadastrar</a>
-                
-                <a href="#" class="favorite-link">
-                    <i class="fas fa-heart favorite-icon"></i>
-                </a>
-            </div>
+            
+            <button class="btn-favoritos">
+                <i class="fas fa-heart"></i>
+            </button>
         </div>
-    </header>
-
+    </div>
+</header>
     <!-- Conteúdo Principal da Consulta FIPE -->
     <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 mb-16">
         <div class="flex flex-col lg:flex-row gap-10">
