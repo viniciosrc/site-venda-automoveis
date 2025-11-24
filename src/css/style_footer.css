@@ -1,8 +1,11 @@
 .main-footer {
-    background-color: var(--dark-black);
-    color: var(--white);
+    background-color: #000000;
     padding: 18px 10px 12px;
     margin-top: 2.2rem;
+}
+
+body{
+    color:#ffffff ;
 }
 
 .footer-content {

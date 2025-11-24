@@ -8,17 +8,88 @@
 }
 
 /* --- Base/Body --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 
-.home-body {
-    background-color: var(--light-bg);
-    min-height: 100vh;
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
+.header-content {
+    max-width: 100%;
+    margin: 0 auto;
+    /* AJUSTE PARA DEIXAR A LOGO MAIS PERTO DA BORDA (VISUALIZAÇÃO MOBILE) */
+    padding: 0 1rem; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-home-velocita {
+  /* AJUSTE DE TAMANHO DA LOGO */
+  padding-top: 0;
+  height: 250px;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.logo-home-velocita img {
+    height: 100% ;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 8rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    
+}
+
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--primary-red);
+}
+
+/* Ícones de Acesso e Favoritos */
+.access-icons, .favorite-icon {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.access-link, .favorite-link {
+  text-decoration: none;
+    
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+}
+
+.access-icon,
+.favorite-icon {
+  font-size: 1.5rem;
+  color: #e74c3c;
+}
+
+.access-text {
+  text-decoration: none;
+    margin-left: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+ /* final do header
+
 
 /* Estilo para o campo de seleção customizado (input-like) */
         .custom-select-input {
@@ -98,3 +169,86 @@
             color: #10b981; /* Verde forte para o preço */
             margin-top: 0.5rem;
         }
+
+        .main-footer {
+    background-color: #000000;
+    padding: 18px 10px 12px;
+    margin-top: 2.2rem;
+}
+
+.footer-content {
+    margin: 0 auto;
+}
+
+/* Links do Footer */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary-red);
+}
+
+/* Informações da Empresa */
+.footer-info {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.footer-company-info {
+    font-size: 0.875rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Logo do Footer */
+.footer-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+}
+
+hr {
+    width: 120%;
+    margin-bottom: 1rem;
+    margin-top: -1rem;
+    border: none;
+    border-top: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .footer-company-info {
+        font-size: 0.75rem;
+    }
+
+    .footer-logo {
+        height: 60px;
+    }
+}
+
