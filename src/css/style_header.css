@@ -35,8 +35,16 @@ body {
     align-items: center;
 }
 
+.logo-home-velocita {
+  /* AJUSTE DE TAMANHO DA LOGO */
+  padding-top: 0;
+  
+  width: auto;
+  margin-right: 0.5rem ;
+} 
+
 .logo-img {
-    height: 35px;
+    height: 5%;
     width: auto;
 }
 
