@@ -1,0 +1,123 @@
+/* ==================================== */
+/* 🚗 ARQUIVO: header-global.css        */
+/* ESTILOS PADRÃO PARA TODAS AS PÁGINAS */
+/* ==================================== */
+
+:root {
+    --primary-red: #D63031; /* Mantém as variáveis principais */
+    --white: #FFFFFF;
+    /* ... outras variáveis globais que se aplicam ao header ... */
+}
+
+/* --- Base do Header (Usa as classes do stylehome.css) --- */
+.main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0; /* Remove padding desnecessário se a altura for controlada pelo content */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 100%; /* Permite que ele se estique, como no stylehome */
+    margin: 0 auto;
+    padding: 0 1rem; 
+    height: 100px; /* Altura do header padronizada */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* --- Logo --- */
+.logo-home-velocita {
+    height: 250px; /* Mantém o tamanho grande para o IMG controlar */
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.logo-home-velocita img {
+    height: 100px; /* Altura final da imagem dentro do header */
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- Menu de Navegação --- */
+.nav-menu {
+    display: flex;
+    gap: 8rem; /* Grande espaçamento do stylehome */
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+    color: #333; /* Cor padrão do link */
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-red);
+}
+
+/* --- Ícones de Acesso e Favoritos (stylehome.css) --- */
+.access-icons, .favorite-icon {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.access-link, .favorite-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s;
+}
+
+.access-icon,
+.favorite-icon {
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.access-text {
+    text-decoration: none;
+    margin-left: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333; /* Adicionado para garantir a cor do texto */
+}
+
+/* --- Se você usar a estrutura do header padrão (stylehome não usa, mas é bom ter) --- */
+.btn-entrar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.btn-entrar:hover {
+    background-color: #f5f5f5;
+    border-color: #333;
+}
+.btn-favoritos { /* Exemplo da sua estrutura de header padrão */
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn-favoritos:hover {
+    background-color: #f5f5f5;
+    border-color: #333;
+}
