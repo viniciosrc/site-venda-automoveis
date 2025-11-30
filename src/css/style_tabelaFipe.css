@@ -9,10 +9,12 @@
 
 /* --- Base/Body --- */
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
 }
+
+/* ---------------------- HEADER ---------------------- */
 
 .main-header {
     background-color: var(--white);
@@ -22,8 +24,7 @@ body {
 .header-content {
     max-width: 100%;
     margin: 0 auto;
-    /* AJUSTE PARA DEIXAR A LOGO MAIS PERTO DA BORDA (VISUALIZAÇÃO MOBILE) */
-    padding: 0 1rem; 
+    padding: 0 1rem;
     height: 100px;
     display: flex;
     align-items: center;
@@ -31,15 +32,14 @@ body {
 }
 
 .logo-home-velocita {
-  /* AJUSTE DE TAMANHO DA LOGO */
-  padding-top: 0;
-  height: 250px;
-  width: auto;
-  margin-right: 0.5rem;
+    padding-top: 0;
+    height: 250px;
+    width: auto;
+    margin-right: 0.5rem;
 }
 
 .logo-home-velocita img {
-    height: 100% ;
+    height: 100%;
     width: auto;
     object-fit: contain;
 }
@@ -49,7 +49,6 @@ body {
     gap: 8rem;
     font-size: 1.125rem;
     font-weight: 500;
-    
 }
 
 .nav-link {
@@ -61,7 +60,7 @@ body {
     color: var(--primary-red);
 }
 
-/* Ícones de Acesso e Favoritos */
+/* Icons */
 .access-icons, .favorite-icon {
     display: flex;
     align-items: center;
@@ -69,8 +68,7 @@ body {
 }
 
 .access-link, .favorite-link {
-  text-decoration: none;
-    
+    text-decoration: none;
     display: flex;
     align-items: center;
     transition: color 0.15s;
@@ -78,99 +76,106 @@ body {
 
 .access-icon,
 .favorite-icon {
-  font-size: 1.5rem;
-  color: #e74c3c;
+    font-size: 1.5rem;
+    color: #e74c3c;
 }
 
 .access-text {
-  text-decoration: none;
     margin-left: 0.5rem;
     font-size: 1.125rem;
     font-weight: 500;
 }
- /* final do header
 
+/* ---------------------- DROPDOWN CUSTOM ---------------------- */
 
-/* Estilo para o campo de seleção customizado (input-like) */
-        .custom-select-input {
-            cursor: pointer;
-            background-color: #fff; /* Fundo branco para o campo */
-            position: relative;
-        }
+.custom-select-input {
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+}
 
-        /* Dropdown/Modal de Opções */
-        .options-dropdown {
-            position: absolute;
-            z-index: 20; /* Acima de outros elementos */
-            background-color: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
+.options-dropdown {
+    position: absolute;
+    z-index: 20;
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
 
-        .option-item {
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
+.option-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background: #ffffff;
+    color: #222;
+}
 
-        .option-item:hover {
-            background-color: #f3f4f6;
-        }
+.option-item:hover {
+    background-color: #f7f7f7;
+}
 
-        .option-item.selected {
-            background-color: #ffeedd; /* Fundo claro para item selecionado */
-            font-weight: 600;
-            color: #ff7043;
-        }
-        
-        /* Estiliza o placeholder do select desabilitado */
-        select:disabled {
-            background-color: #f1f1f1;
-            cursor: not-allowed;
-            color: #888;
-        }
+.option-item.selected {
+    background-color: #ffe4d8;
+    border-left: 4px solid #ff7043;
+    font-weight: 600;
+    color: #ff7043;
+}
 
-        /* Estilo para a coluna de resultados (Direita) */
-        .result-column {
-            background-color: #e5e7eb; /* Cinza claro semelhante à imagem */
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed #cccccc;
-        }
+.option-item svg {
+    stroke: #ff7043;
+}
 
-        .result-item:last-child {
-            border-bottom: none;
-        }
+/* Placeholder para selects desabilitados */
+select:disabled {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+    color: #888;
+}
 
-        .result-label {
-            font-weight: 500;
-            color: #4b5563;
-        }
+/* ---------------------- RESULT COLUMN ---------------------- */
 
-        .result-value {
-            font-weight: 700;
-            color: #1f2937;
-        }
+.result-column {
+    background-color: #e5e7eb;
+    border-radius: 12px;
+    padding: 2.5rem;
+}
 
-        .result-value.large {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: #10b981; /* Verde forte para o preço */
-            margin-top: 0.5rem;
-        }
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #cccccc;
+}
 
-        .main-footer {
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.result-value {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.result-value.large {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #10b981;
+    margin-top: 0.5rem;
+}
+
+/* ---------------------- FOOTER ---------------------- */
+
+.main-footer {
     background-color: #000000;
     padding: 18px 10px 12px;
     margin-top: 2.2rem;
@@ -180,7 +185,6 @@ body {
     margin: 0 auto;
 }
 
-/* Links do Footer */
 .footer-links {
     display: flex;
     justify-content: center;
@@ -201,7 +205,6 @@ body {
     color: var(--primary-red);
 }
 
-/* Informações da Empresa */
 .footer-info {
     text-align: center;
     margin-bottom: 1rem;
@@ -214,7 +217,6 @@ body {
     line-height: 1.6;
 }
 
-/* Logo do Footer */
 .footer-logo-container {
     display: flex;
     justify-content: center;
@@ -227,7 +229,6 @@ body {
 }
 
 hr {
-    width: 120%;
     margin-bottom: 1rem;
     margin-top: -1rem;
     border: none;
@@ -235,7 +236,6 @@ hr {
     width: 100%;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .footer-links {
         flex-direction: column;
@@ -252,3 +252,24 @@ hr {
     }
 }
 
+/* ---------------------- SELECT (CORRIGIDO) ---------------------- */
+
+/* Todas as opções visíveis */
+select option {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Select exibindo opção escolhida */
+select {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    appearance: none;
+}
+
+/* Hover e foco das opções */
+select option:hover,
+select option:focus {
+    background-color: #f0f0f0 !important;
+    color: #000000 !important;
+}
