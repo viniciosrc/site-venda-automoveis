@@ -84,3 +84,62 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     initThumbnails();
 });
+
+function abrirPopup() {
+    document.getElementById('popupCompra').classList.add('active');
+}
+
+// Função para fechar o pop-up
+function fecharPopup() {
+    document.getElementById('popupCompra').classList.remove('active');
+}
+
+// Fechar pop-up ao clicar fora dele
+document.getElementById('popupCompra').addEventListener('click', function(e) {
+    if (e.target === this) {
+        fecharPopup();
+    }
+});
+
+// Função para enviar para WhatsApp
+function enviarWhatsApp(event) {
+    event.preventDefault();
+    
+    const nome = document.getElementById('nomeComprador').value;
+    const endereco = document.getElementById('enderecoComprador').value;
+    
+    // MODIFIQUE O NÚMERO ABAIXO (formato: código do país + DDD + número)
+    const numeroWhatsApp = '553791409974'; // Exemplo: 55 31 99999-9999
+    
+    // Informações do veículo (você pode modificar conforme necessário)
+    const veiculo = 'BMW 320I A 2.0 TB M Sport Activeflex 16V 4P 2020';
+    const preco = 'R$ 209.550';
+    
+    // Mensagem que será enviada
+    const mensagem = `Olá! Tenho interesse em comprar o veículo:\n\n` +
+                     `🚗 *${veiculo}*\n` +
+                     `💰 Preço: ${preco}\n\n` +
+                     `📋 Meus dados:\n` +
+                     `Nome: ${nome}\n` +
+                     `Endereço: ${endereco}`;
+    
+    // Codifica a mensagem para URL
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    
+    // Cria o link do WhatsApp
+    const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+    
+    // Abre o WhatsApp em nova aba
+    window.open(linkWhatsApp, '_blank');
+    
+    // Fecha o pop-up
+    fecharPopup();
+}
+
+// Adicionar evento ao botão COMPRAR existente
+document.addEventListener('DOMContentLoaded', function() {
+    const btnComprar = document.querySelector('.btn-buy');
+    if (btnComprar) {
+        btnComprar.addEventListener('click', abrirPopup);
+    }
+});
